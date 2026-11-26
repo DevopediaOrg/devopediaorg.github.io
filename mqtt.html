@@ -1,0 +1,1480 @@
+<!DOCTYPE HTML>
+<html lang="en-gb" dir="ltr"  data-config='{"twitter":0,"plusone":0,"facebook":0,"style":"rainbow"}'>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="rights" content="CC BY-SA 4.0 for content. MIT License for code." />
+    <meta name="facebook-domain-verification" content="27swo0jxj7b97c1kakrk8x38sz5vsa" />
+        <meta name="author" content="arvindpdmn, jiraffa18ft, tintin, + 1 more" />
+    <meta name="description" content="MQTT is a publish/subscribe messaging transport protocol. It has low complexity, small code footprint and consumes low network bandwidth for messaging. The lightweight protocol and small packet size support makes it suitable for applications such as Machine to Machine (M2M) and Internet of Things (IoT)." />
+    <title>MQTT</title>
+    <link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    
+        <link href="mqtt.html" rel="canonical" />
+        <link rel="preconnect" href="https://www.googletagmanager.com">
+        <link rel="preconnect" href="https://www.google-analytics.com">
+        <link rel="preconnect" href="https://stats.g.doubleclick.net">
+        <link rel="preconnect" href="https://static.addtoany.com">
+        
+          <link href="css/__devopedia_v0.49.css" rel="preload" as="style" />
+      <link href="css/__devopedia_v0.49.css" rel="stylesheet" type="text/css" />
+        
+        
+          <link href="js/__devopedia_v0.49.js" rel="preload" as="script" />
+      <script src="js/__devopedia_v0.49.js"></script>
+          <link href="js/__view.article_v0.49.js" rel="preload" as="script" />
+      <script src="js/__view.article_v0.49.js"></script>
+        
+        
+    <link href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license" />
+    <link rel="icon" sizes="192x192" href="images/icons/touch-icon-192x192.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="images/icons/apple-touch-icon-180x180-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/icons/apple-touch-icon-152x152-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/icons/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/icons/apple-touch-icon-120x120-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/icons/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/icons/apple-touch-icon-76x76-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/icons/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/icons/apple-touch-icon-precomposed.png">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+    
+          <meta property="og:locale" content="en_GB" />
+          <meta property="og:type" content="article" />
+          <meta property="og:title" content="MQTT" />
+          <meta property="og:description" content="MQTT is a publish/subscribe messaging transport protocol. It has low complexity, small code footprint and consumes low network bandwidth for messaging. The lightweight protocol and small packet size support makes it suitable for applications such as Machine to Machine (M2M) and Internet of Things (IoT)." />
+          <meta property="og:url" content="https://devopedia.org/mqtt" />
+          <meta property="og:site_name" content="Devopedia" />
+          <meta property="article:publisher" content="Devopedia Foundation" />
+          <meta property="article:author" content="arvindpdmn, jiraffa18ft, tintin, + 1 more" />
+          <meta property="article:published_time" content="2017-02-17T16:13:14Z" />
+          <meta property="article:modified_time" content="2022-02-15T11:48:04Z" />
+          <meta property="og:updated_time" content="2022-02-15T11:48:04Z" />
+          <meta property="og:image" content="https://devopedia.org/images/article/10/4215.1529256993.jpg" />
+          <meta property="og:image:secure_url" content="https://devopedia.org/images/article/10/4215.1529256993.jpg" />
+          <meta property="og:image:alt" content="Message delivery at different QoS levels.  Source: https://www.slideshare.net/paolopat/mqtt-iot-protocols-comparison" />
+        
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:description" content="MQTT is a publish/subscribe messaging transport protocol. It has low complexity, small code footprint and consumes low network bandwidth for messaging. The lightweight protocol and small packet size support makes it suitable for applications such as Machine to Machine (M2M) and Internet of Things (IoT)." />
+          <meta name="twitter:title" content="MQTT" />
+          <meta name="twitter:site" content="@devopedia" />
+          <meta name="twitter:image" content="https://devopedia.org/images/article/10/4215.1529256993.jpg" />
+        
+          <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://devopedia.org/mqtt"
+    },
+    "headline": "MQTT",
+    "dependencies": "None",
+    "proficiencyLevel": "Beginner",
+    "image": "https://devopedia.org/images/article/10/4215.1529256993.jpg",
+    "author": {
+        "@type": "Person",
+        "name": "arvindpdmn, jiraffa18ft, tintin, + 1 more"
+    },
+    "keywords": "embedded, networking, protocol, iot",
+    "wordcount": "1857",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Devopedia Foundation",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://devopedia.org/images/logo/logo-name-reg-v.png"
+        }
+    },
+    "url": "https://devopedia.org/mqtt",
+    "datePublished": "2017-02-17T16:13:14Z",
+    "dateCreated": "2017-02-16T16:35:17Z",
+    "dateModified": "2022-02-15T11:48:04Z",
+    "description": "MQTT is a publish/subscribe messaging transport protocol. It has low complexity, small code footprint and consumes low network bandwidth for messaging. The lightweight protocol and small packet size support makes it suitable for applications such as Machine to Machine (M2M) and Internet of Things (IoT)."
+}</script>
+        
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W13G3ESNB6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W13G3ESNB6', { cookie_flags: 'SameSite=None;Secure' });
+</script>
+      </head>
+
+  <body class="tm-isblog main-home">
+    
+        <div class="tm-navbar-container " data-uk-sticky="{top:-200, animation: 'uk-animation-slide-top'}">
+      <nav class="tm-navbar uk-navbar">
+        <div class="uk-container uk-container-center">
+          <div class="uk-grid uk-flex-space-between uk-hidden-small">
+            <div class="uk-flex-order-first">
+              <a href="index.html" class="main-logo"><img src="images/logo/default.png" alt="logo" /></a>
+              <div class="main-logo-text">
+                <a href="index.html">DEVOPEDIA</a>
+                <div class="trademark"><sup>®</sup></div>
+                <div class="main-tagline">for developers. by developers.</div>
+              </div>
+            </div>
+                        <div class="menu-search-box uk-flex-item-1">
+              <div class="uk-visible">
+              <form id="search-main" class="uk-search" action="https://devopedia.org/site-map/search" method="post" autocomplete="off">
+    <input type="hidden" name="csrf" value="csrf6b07ccd50f00c.06e035157f2743d2fe36bf6053b3cc57">
+    <label for="main-searchword"
+    style="margin-bottom:0px;line-height:0px;color:transparent">-</label>
+    <input class="uk-search-field" type="text" name="searchword" id="main-searchword"
+    placeholder="search...">
+    <div data-uk-dropdown="{mode:'click'}">
+        <div class="searchDropdown"></div>
+        <div class="searchResults uk-dropdown"></div>
+    </div>
+</form>
+              </div>
+            </div>
+                        <div class="uk-flex-order-last">
+                            <ul class="uk-navbar-nav uk-hidden-small">
+                <li class="uk-parent uk-active" data-uk-dropdown="{'preventflip':'y','pos':'left-top'}"
+                  aria-haspopup="true" aria-expanded="false">
+                  <a href="mqtt.html#" title="Site Map"><i
+                    class="uk-icon-sitemap uk-icon-large"></i></a>
+                  <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-width-1">
+                    <div class="uk-grid uk-dropdown-grid">
+                      <div class="uk-width-1-1">
+                        <ul class="uk-nav uk-nav-navbar">
+                        
+<li class=""><a href="https://devopedia.org/site-map/browse-articles" rel="nofollow noindex">Browse Articles</a></li>
+<li class=""><a href="site-map/community-outreach.html" class="menu-line-above">Community Outreach</a></li>
+<li class=""><a href="site-map/about-devopedia.html" class="menu-line-above">About Devopedia</a></li>
+<li class=""><a href="site-map/author-guidelines.html">Author Guidelines</a></li>
+<li class=""><a href="site-map/site-stats.html">Site Stats</a></li>
+<li class=""><a href="https://devopedia.org/site-map/faq-help" rel="nofollow noindex">FAQ &amp; Help</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul class="uk-navbar-nav uk-hidden-small">
+                <li class="uk-parent" data-uk-dropdown="{pos:'left-top'}">
+                                    <a href="mqtt.html#" title="Login"><i class="vflipper uk-icon-sign-in uk-icon-large"></i></a>
+                                    <div class="uk-dropdown uk-dropdown-navbar">
+                    
+<div class="jlslogin">
+  <div id="menu-slogin-buttons" class="slogin-buttons slogin-compact">
+    <a title="Facebook" href="site-map/user/auth/facebook.html" rel="nofollow noindex"><span
+      class="facebookslogin">&nbsp;</span></a>
+    <a title="Google" href="site-map/user/auth/google.html" rel="nofollow noindex"><span
+      class="googleslogin">&nbsp;</span></a>
+    <a title="LinkedIn" href="https://devopedia.org/site-map/user/auth/linkedin" rel="nofollow noindex"><span
+      class="linkedinslogin">&nbsp;</span></a>
+    <a title="GitHub" href="site-map/user/auth/github.html" rel="nofollow noindex"><span
+      class="githubslogin">&nbsp;</span></a>
+    <a title="BitBucket" href="https://devopedia.org/site-map/user/auth/bitbucket" rel="nofollow noindex"><span
+      class="bitbucketslogin">&nbsp;</span></a>
+  </div>
+  <div class="slogin-clear"></div>
+  <form action="https://devopedia.org/site-map/user/login" method="post" id="menu-login-form">
+    <input type="hidden" name="csrf" value="csrf6b07ccd50f00c.06e035157f2743d2fe36bf6053b3cc57">
+    <fieldset class="userdata">
+      <p id="menu-form-login-username">
+        <label for="menu-modlgn-username">Username</label>
+        <input id="menu-modlgn-username" type="text" name="username" class="inputbox"
+          size="18" />
+      </p>
+      <p id="menu-form-login-password">
+        <label for="menu-modlgn-passwd">Password</label>
+        <input id="menu-modlgn-passwd" type="password" name="password" class="inputbox"
+          size="18" />
+      </p>
+      <div class="slogin-clear"></div>
+      <input type="submit" name="Submit" class="button" value="Log in" />
+    </fieldset>
+    <ul class="ul-jlslogin">
+      <li>
+        <a href="site-map/user/forgot-password.html" rel="nofollow noindex">
+        Forgot your password?</a>
+      </li>
+      <li>
+        <a href="site-map/user/register.html" rel="nofollow noindex">
+        Create an account</a>
+      </li>
+    </ul>
+  </form>
+</div>
+
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="uk-flex uk-flex-middle uk-flex-space-between uk-visible-small">
+            <div id="logo-name-small">
+              <a href="index.html" class="main-logo"><img src="images/logo/default.png" alt="logo" /></a>
+              <div class="main-logo-text">
+                <a href="index.html">DEVOPEDIA</a>
+                <div class="trademark"><sup>®</sup></div>
+                <div class="main-tagline">for developers. by developers.</div>
+              </div>
+            </div>
+            <div>
+                            <a href="mqtt.html#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div id="tm-main" class="tm-block-main uk-block uk-block-default tm-block-small">
+      <div class="uk-container uk-container-center">
+        <div class="tm-main uk-grid uk-position-relative" data-uk-grid-match>
+          <div class="tm-main uk-width-medium-1-1 uk-flex-order-last">
+            <main id="tm-content" class="tm-content">
+                            <article class="uk-article tm-blog-single ">
+                              <h1 class="uk-article-title">MQTT</h1>
+
+
+
+
+
+<a class="outer-close-icon" style="display:none"><i class="uk-icon-close"></i></a>
+<div id="diff-draft-modal" class="uk-modal"></div>
+<div class="pull-right">
+  <nav class="article-hover-links" data-aid="10" data-ispub="0">
+    <div class="uk-visible-small">
+      <a href="mqtt.html#offcanvas-article-menu" id="offcanvas-article-menu-link" data-uk-offcanvas="{mode:'slide'}"><i class="uk-icon-justify uk-icon-list-ul" data-uk-tooltip="{cls:'ttip'}" title="Article content menu"></i></a><br>
+      <div id="offcanvas-article-menu" class="uk-offcanvas">
+        <div class="uk-offcanvas-bar uk-offcanvas-bar-flip article-hover-canvas">
+          <h2>Article Content Menu</h2>
+          <nav class="toc">
+            <ul>
+  <li><a href="mqtt.html#summary">Summary</a></li>
+
+    <li>
+  <a href="mqtt.html#discussion">Discussion</a>
+  <ul>
+            <li><a href="mqtt.html#qst-ans-0">What's the expansion for MQTT?</a></li>
+            <li><a href="mqtt.html#qst-ans-1">How does the MQTT protocol work?</a></li>
+            <li><a href="mqtt.html#qst-ans-2">What are the core features of MQTT?</a></li>
+            <li><a href="mqtt.html#qst-ans-3">Why can't I use HTTP instead of MQTT?</a></li>
+            <li><a href="mqtt.html#qst-ans-4">What was MQTT designed for and where is it popularly used today?</a></li>
+            <li><a href="mqtt.html#qst-ans-5">What are the control packets supported in MQTT?</a></li>
+            <li><a href="mqtt.html#qst-ans-6">What sort of Quality of Service (QoS) does MQTT offer?</a></li>
+            <li><a href="mqtt.html#qst-ans-7">Does MQTT support security?</a></li>
+            <li><a href="mqtt.html#qst-ans-8">What are the limiting factors of MQTT to consider while using it?</a></li>
+            <li><a href="mqtt.html#qst-ans-9">What software implementations of MQTT are available?</a></li>
+        </ul>
+  </li>
+  
+    <li><a href="mqtt.html#milestones">Milestones</a></li>
+  
+    <li><a href="mqtt.html#sample-code">Sample Code</a></li>
+  
+    <li><a href="mqtt.html#references">References</a></li>
+  
+    <li><a href="mqtt.html#further-reading">Further Reading</a></li>
+  
+  <li><a href="mqtt.html#article-stats">Article Stats</a></li>
+
+  <li><a href="mqtt.html#cite-as">Cite As</a></li>
+</ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="uk-visible-small">
+      <a href="mqtt.html#offcanvas-article-info" id="offcanvas-article-info-link" data-uk-offcanvas="{mode:'slide'}"><i class="uk-icon-justify uk-icon-info-circle" data-uk-tooltip="{cls:'ttip'}" title="Article info"></i></a><br>
+      <div id="offcanvas-article-info" class="uk-offcanvas">
+        <div class="uk-offcanvas-bar uk-offcanvas-bar-flip article-hover-canvas">
+          <h2>Article Info</h2>
+          <div class="article-top-authors">
+  <a href='mqtt.html#author-stats-modal' data-uk-modal data-uk-tooltip="{cls:'ttip'}" title='Stats by Author'>
+  Contributed by<br>4 authors  </a>
+
+  <br><br>Last updated on<br>
+  <span class='user-datetime dt-readable'>
+    2022-02-15 11:48:04
+    </span>
+
+  
+  
+</div>
+
+<div data-uk-sticky="{top:80}">
+    <div class="article-tags">
+        <a href="https://devopedia.org/site-map/browse-articles/embedded">embedded</a>
+        <a href="https://devopedia.org/site-map/browse-articles/networking">networking</a>
+        <a href="https://devopedia.org/site-map/browse-articles/protocol">protocol</a>
+        <a href="https://devopedia.org/site-map/browse-articles/iot">iot</a>
+      </div>
+  
+    <h3 class="sidebar-head">See Also <a class="uk-icon-puzzle-piece" href="https://devopedia.org/site-map/browse-articles?explore/mqtt" rel="nofollow noindex" data-uk-tooltip="{cls:'ttip'}" title="View in Article Explorer"></a></h3>
+  <ul class="see-also">
+  <li>
+      RabbitMQ
+    <a href="site-map/add-article%3Ftitle=RabbitMQ.html" rel="nofollow">
+      <i class='uk-icon uk-icon-plus add-article-link' data-uk-tooltip="{cls:'ttip'}" title='Add new article'></i>
+    </a>
+  </li>
+<li>
+      HiveMQ
+    <a href="site-map/add-article%3Ftitle=HiveMQ.html" rel="nofollow">
+      <i class='uk-icon uk-icon-plus add-article-link' data-uk-tooltip="{cls:'ttip'}" title='Add new article'></i>
+    </a>
+  </li>
+<li>
+      Eclipse Mosquitto
+    <a href="site-map/add-article%3Ftitle=Eclipse&#32;Mosquitto.html" rel="nofollow">
+      <i class='uk-icon uk-icon-plus add-article-link' data-uk-tooltip="{cls:'ttip'}" title='Add new article'></i>
+    </a>
+  </li>
+<li>
+      Eclipse Paho
+    <a href="site-map/add-article%3Ftitle=Eclipse&#32;Paho.html" rel="nofollow">
+      <i class='uk-icon uk-icon-plus add-article-link' data-uk-tooltip="{cls:'ttip'}" title='Add new article'></i>
+    </a>
+  </li>
+<li>
+      Advanced Message Queuing Protocol
+    <a href="site-map/add-article%3Ftitle=Advanced&#32;Message&#32;Queuing&#32;Protocol.html" rel="nofollow">
+      <i class='uk-icon uk-icon-plus add-article-link' data-uk-tooltip="{cls:'ttip'}" title='Add new article'></i>
+    </a>
+  </li>
+<li>
+      Publish-Subscribe Pattern
+    <a href="site-map/add-article%3Ftitle=Publish-Subscribe&#32;Pattern.html" rel="nofollow">
+      <i class='uk-icon uk-icon-plus add-article-link' data-uk-tooltip="{cls:'ttip'}" title='Add new article'></i>
+    </a>
+  </li>
+  </ul>
+  </div>        </div>
+      </div>
+    </div>
+
+    <span class="article-page-like" data-vid="0">
+            <i class="uk-icon-justify uk-icon-thumbs-o-up article-unliked" data-uk-tooltip="{cls:'ttip'}" title="Like this page"></i><br>
+          </span>
+
+        <a href="mqtt.html#offcanvas-share" id="offcanvas-share-link" data-uk-offcanvas="{mode:'slide'}"><i class="uk-icon-justify uk-icon-share-alt" data-uk-tooltip="{cls:'ttip'}" title="Share article"></i></a><br>
+    <div id="offcanvas-share" class="uk-offcanvas">
+      <div class="uk-offcanvas-bar uk-offcanvas-bar-flip article-hover-canvas">
+        <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+          <a class="a2a_button_facebook"></a>
+          <a class="a2a_button_x"></a>
+          <a class="a2a_button_linkedin"></a>
+          <a class="a2a_button_reddit"></a>
+          <a class="a2a_button_whatsapp"></a>
+          <a class="a2a_button_telegram"></a>
+        </div>
+        <script>
+          var a2a_config = a2a_config || {};
+          a2a_config.onclick = 1;
+        </script>
+        <script async src="https://static.addtoany.com/menu/page.js"></script>
+      </div>
+    </div>
+    
+    <i class="uk-icon-justify article-showhide-links uk-icon-unlink" data-uk-tooltip="{cls:'ttip'}" title="Toggle hyperlinks"></i><br>
+
+    <a href="mqtt.html#offcanvas-compare" id="offcanvas-compare-link" data-uk-offcanvas="{mode:'slide'}">
+      <i class="uk-icon-justify uk-icon-files-o" data-uk-tooltip="{cls:'ttip'}" title="Compare versions"></i>
+    </a><br>
+    <div id="offcanvas-compare" class="uk-offcanvas">
+      <div class="uk-offcanvas-bar uk-offcanvas-bar-flip article-hover-canvas">
+        <h2>Article Versions</h2>
+        <ul id="article-hover-versions" class="uk-list uk-list-line">
+          <li class=' '>
+  <div class='item-head'>
+    <span class='uk-icon-button'>15</span>
+    <span class='user-datetime'>2022-02-15 11:48:04</span>
+    <div class='pull-right' data-id='10' data-vid='3304'><i class='icon-blank uk-icon-justify'></i><a href='mqtt.html#diff-modal' class='diff-versions uk-icon-justify uk-icon-exchange' data-uk-modal data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title='Diff with
+previous'><span class='hidden-ids'>3304,2130</span></a> <a href='mqtt.html#oldview-modal' class='view-older uk-icon-justify uk-icon-eye' data-uk-modal data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title='View this
+version'><span class='hidden-ids'>15,3304</span></a> <span class="num-likes"></span> <i class="uk-icon-justify uk-icon-thumbs-o-up article-unliked" data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title="Like this
+version  "></i></div><br>
+      
+      By <a href='https://devopedia.org/user/devbot5S' rel="nofollow noindex">devbot5S</a><br>
+      </div>
+      Migrating blockquotes to markdown syntax
+  </li>
+<li class=' '>
+  <div class='item-head'>
+    <span class='uk-icon-button'>14</span>
+    <span class='user-datetime'>2020-07-20 10:47:50</span>
+    <div class='pull-right' data-id='10' data-vid='2130'><i class='icon-blank uk-icon-justify'></i><a href='mqtt.html#diff-modal' class='diff-versions uk-icon-justify uk-icon-exchange' data-uk-modal data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title='Diff with
+previous'><span class='hidden-ids'>2130,1852</span></a> <a href='mqtt.html#oldview-modal' class='view-older uk-icon-justify uk-icon-eye' data-uk-modal data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title='View this
+version'><span class='hidden-ids'>14,2130</span></a> <span class="num-likes"></span> <i class="uk-icon-justify uk-icon-thumbs-o-up article-unliked" data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title="Like this
+version  "></i></div><br>
+      
+      By <a href='https://devopedia.org/user/arvindpdmn' rel="nofollow noindex">arvindpdmn</a><br>
+      </div>
+      Adding image and citations to Summary.
+  </li>
+<li class=' '>
+  <div class='item-head'>
+    <span class='uk-icon-button'>13</span>
+    <span class='user-datetime'>2020-01-06 03:58:29</span>
+    <div class='pull-right' data-id='10' data-vid='1852'><i class='icon-blank uk-icon-justify'></i><a href='mqtt.html#diff-modal' class='diff-versions uk-icon-justify uk-icon-exchange' data-uk-modal data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title='Diff with
+previous'><span class='hidden-ids'>1852,754</span></a> <a href='mqtt.html#oldview-modal' class='view-older uk-icon-justify uk-icon-eye' data-uk-modal data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title='View this
+version'><span class='hidden-ids'>13,1852</span></a> <span class="num-likes"></span> <i class="uk-icon-justify uk-icon-thumbs-o-up article-unliked" data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title="Like this
+version  "></i></div><br>
+      
+      By <a href='https://devopedia.org/user/arvindpdmn' rel="nofollow noindex">arvindpdmn</a><br>
+      </div>
+      Minor edit: case change in See Also.
+  </li>
+<li class=' '>
+  <div class='item-head'>
+    <span class='uk-icon-button'>12</span>
+    <span class='user-datetime'>2018-07-11 12:50:03</span>
+    <div class='pull-right' data-id='10' data-vid='754'><i class='icon-blank uk-icon-justify'></i><a href='mqtt.html#diff-modal' class='diff-versions uk-icon-justify uk-icon-exchange' data-uk-modal data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title='Diff with
+previous'><span class='hidden-ids'>754,689</span></a> <a href='mqtt.html#oldview-modal' class='view-older uk-icon-justify uk-icon-eye' data-uk-modal data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title='View this
+version'><span class='hidden-ids'>12,754</span></a> <span class="num-likes"></span> <i class="uk-icon-justify uk-icon-thumbs-o-up article-unliked" data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title="Like this
+version  "></i></div><br>
+      
+      By <a href='https://devopedia.org/user/tintin' rel="nofollow noindex">tintin</a><br>
+      </div>
+      Added milestone about EMQ. Includes an image.
+  </li>
+<li class=' '>
+  <div class='item-head'>
+    <span class='uk-icon-button'>11</span>
+    <span class='user-datetime'>2018-06-19 04:49:18</span>
+    <div class='pull-right' data-id='10' data-vid='689'><i class='icon-blank uk-icon-justify'></i><a href='mqtt.html#diff-modal' class='diff-versions uk-icon-justify uk-icon-exchange' data-uk-modal data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title='Diff with
+previous'><span class='hidden-ids'>689,673</span></a> <a href='mqtt.html#oldview-modal' class='view-older uk-icon-justify uk-icon-eye' data-uk-modal data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title='View this
+version'><span class='hidden-ids'>11,689</span></a> <span class="num-likes"></span> <i class="uk-icon-justify uk-icon-thumbs-o-up article-unliked" data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title="Like this
+version  "></i></div><br>
+      
+      By <a href='https://devopedia.org/user/arvindpdmn' rel="nofollow noindex">arvindpdmn</a><br>
+      </div>
+      Updated content based on comments on Reddit: retained messages, TLS/WebSocket correction, clustering.
+  </li>
+        </ul>
+        <div class="loadmsg pull-right" style="display:none">Loading ...</div>
+        <a id="load-older-versions" style="display:none">
+        <i class="pull-right uk-icon uk-icon-button uk-icon-chevron-down" data-uk-tooltip="{cls:'ttip'}" title="Load older versions"></i>
+        </a>
+      </div>
+    </div>
+    <div id="diff-modal" class="uk-modal"></div>
+    <div id="oldview-modal" class="uk-modal"></div>
+
+    
+    <a href="mqtt.html#offcanvas-chatroom" id="offcanvas-chatroom-link" data-uk-offcanvas="{mode:'slide'}"><i class="uk-icon-justify uk-icon-comments-o" data-uk-tooltip="{cls:'ttip'}" title="Discuss this page"></i></a><br>
+    <div id="offcanvas-chatroom" class="uk-offcanvas">
+      <div class="uk-offcanvas-bar uk-offcanvas-bar-flip article-hover-canvas">
+        <h2>Chat Room</h2>
+        <ul id="article-chat-msgs" class="uk-list uk-list-line">
+          <li>
+            <div id="chat-save-error"></div>
+            <div class="savenewmsg pull-right" style="display:none">Submitting ...</div>
+            <div id="chat-edit-desc" class="uk-alert uk-alert-warning" style="display:none">You are editing an existing chat message.</div>
+            <form id="chat-form">
+              <input type="hidden" id="savedVersion" value="">
+              <input type="hidden" id="savedSection" value="">
+              <input type="hidden" id="chatid" value="0">
+              <select id="chat-article-version" name="version">
+                <option selected='selected' value='0'>All Versions</option>
+                                <option value='3304' class='user-datetime'>2022-02-15 11:48:04 by devbot5S</option>
+                                <option value='2130' class='user-datetime'>2020-07-20 10:47:50 by arvindpdmn</option>
+                                <option value='1852' class='user-datetime'>2020-01-06 03:58:29 by arvindpdmn</option>
+                                <option value='754' class='user-datetime'>2018-07-11 12:50:03 by tintin</option>
+                                <option value='689' class='user-datetime'>2018-06-19 04:49:18 by arvindpdmn</option>
+                                <option value='673' class='user-datetime'>2018-06-17 17:40:28 by arvindpdmn</option>
+                                <option value='67' class='user-datetime'>2017-03-21 17:50:11 by tintin</option>
+                                <option value='15' class='user-datetime'>2017-03-07 11:25:03 by tintin</option>
+                                <option value='12' class='user-datetime'>2017-03-04 18:16:10 by jiraffa18ft</option>
+                                <option value='11' class='user-datetime'>2017-03-04 18:13:02 by jiraffa18ft</option>
+                                <option value='10' class='user-datetime'>2017-03-04 18:08:31 by jiraffa18ft</option>
+                                <option value='9' class='user-datetime'>2017-03-04 17:50:32 by jiraffa18ft</option>
+                                <option value='8' class='user-datetime'>2017-03-04 17:46:44 by jiraffa18ft</option>
+                                <option value='2' class='user-datetime'>2017-02-17 16:13:14 by arvindpdmn</option>
+                                <option value='1' class='user-datetime'>2017-02-16 16:35:17 by jiraffa18ft</option>
+                              </select>
+              <select id="chat-article-section" name="section">
+                <option selected='selected' value='All Sections'>All Sections</option>
+                <option value='Summary'>Summary</option>
+                <option value='Discussion'>Discussion</option>
+                <option value='Sample Code'>Sample Code</option>
+                <option value='References'>References</option>
+                <option value='Milestones'>Milestones</option>
+                <option value='Tags'>Tags</option>
+                <option value='See Also'>See Also</option>
+                <option value='Further Reading'>Further Reading</option>
+              </select>
+                          </form>
+          </li>
+
+          
+<li id='16.0' class=' ' data-edittext="It&amp;#039;s mentioned that MQ does not stand for Message Queue. But Wikipedia entry for MQTT says otherwise: Message Queue. OASIS site says it&amp;#039;s Message Queuing (https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=mqtt)">
+  <div class="item-head">
+        <span class='user-datetime'>2017-11-04 08:21:43</span>
+    <div class='pull-right' data-id='16' data-vid='0'>Summary<br><span class="num-likes"></span> <i class="uk-icon-justify uk-icon-thumbs-o-up chat-unliked" data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title="Like this
+message  "></i></div>
+    <br>By <a href='https://devopedia.org/user/arvindpdmn' rel="nofollow noindex">arvindpdmn</a><br>
+  </div>
+  It's mentioned that MQ does not stand for Message Queue. But Wikipedia entry for MQTT says otherwise: Message Queue. OASIS site says it's Message Queuing (<a rel="nofollow noopener" href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=mqtt)" target="_blank">https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=mqtt)</a><br>
+</li>
+<li id='1.1' class='last-one ' data-edittext="Good start to Devopedia. Officially, the first article!Suggesting expansion of MQ in &amp;quot;MQ Telemetry Transport&amp;quot;. Citations are not correctly specified. Please refer to http://www.chicagomanualofstyle.org/tools_citationguide.html (author-date system).">
+  <div class="item-head">
+        <span class='user-datetime'>2017-02-21 10:47:49</span>
+    <div class='pull-right' data-id='1' data-vid='1'>Summary<br><span class="num-likes"></span> <i class="uk-icon-justify uk-icon-thumbs-o-up chat-unliked" data-uk-tooltip="{cls:'ttip',pos:'top-left'}" title="Like this
+message  "></i></div>
+    <br>By <a href='https://devopedia.org/user/arvindpdmn' rel="nofollow noindex">arvindpdmn</a><br>
+  </div>
+  Good start to Devopedia. Officially, the first article!Suggesting expansion of MQ in "MQ Telemetry Transport". Citations are not correctly specified. Please refer to <a rel="nofollow noopener" href="http://www.chicagomanualofstyle.org/tools_citationguide.html" target="_blank">http://www.chicagomanualofstyle.org/tools_citationguide.html</a> (author-date system).<br>
+</li>
+
+        </ul>
+        <div class="loadmsg pull-right" style="display:none">Loading ...</div>
+        <a id="load-older-msgs" style="display:none">
+          <i class="pull-right uk-icon uk-icon-button uk-icon-chevron-down" data-uk-tooltip="{cls:'ttip'}" title="Load older messages"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+<div class="uk-grid article-grid" data-uk-grid-margin="">
+    <div class="article-left uk-hidden-small uk-width-medium-1-5">
+    <nav class="toc uk-hidden-small" data-uk-sticky="{top:80}">
+      <ul>
+  <li><a href="mqtt.html#summary">Summary</a></li>
+
+    <li>
+  <a href="mqtt.html#discussion">Discussion</a>
+  <ul>
+            <li><a href="mqtt.html#qst-ans-0">What's the expansion for MQTT?</a></li>
+            <li><a href="mqtt.html#qst-ans-1">How does the MQTT protocol work?</a></li>
+            <li><a href="mqtt.html#qst-ans-2">What are the core features of MQTT?</a></li>
+            <li><a href="mqtt.html#qst-ans-3">Why can't I use HTTP instead of MQTT?</a></li>
+            <li><a href="mqtt.html#qst-ans-4">What was MQTT designed for and where is it popularly used today?</a></li>
+            <li><a href="mqtt.html#qst-ans-5">What are the control packets supported in MQTT?</a></li>
+            <li><a href="mqtt.html#qst-ans-6">What sort of Quality of Service (QoS) does MQTT offer?</a></li>
+            <li><a href="mqtt.html#qst-ans-7">Does MQTT support security?</a></li>
+            <li><a href="mqtt.html#qst-ans-8">What are the limiting factors of MQTT to consider while using it?</a></li>
+            <li><a href="mqtt.html#qst-ans-9">What software implementations of MQTT are available?</a></li>
+        </ul>
+  </li>
+  
+    <li><a href="mqtt.html#milestones">Milestones</a></li>
+  
+    <li><a href="mqtt.html#sample-code">Sample Code</a></li>
+  
+    <li><a href="mqtt.html#references">References</a></li>
+  
+    <li><a href="mqtt.html#further-reading">Further Reading</a></li>
+  
+  <li><a href="mqtt.html#article-stats">Article Stats</a></li>
+
+  <li><a href="mqtt.html#cite-as">Cite As</a></li>
+</ul>
+    </nav>
+  </div>
+
+  <div class="article-middle uk-width-medium-3-5">
+        <section id="summary">
+      <div id='summary-text'>
+        <figure class="article-discussion uk-align-left uk-thumbnail"><img width='856' height='680' src="images/article/10/1873.1595241773.s.png" data-fullsrc="/images/article/10/1873.1595241773.png" title="Comparing MQTT against HTTP. Source: FIWARE 2020." alt="Comparing MQTT against HTTP. Source: FIWARE 2020."><div class="uk-thumbnail-caption">Comparing MQTT against <abbr data-title="&raquo; Hyper Text Transfer Protocol">HTTP</abbr>. Source: FIWARE 2020.<sup class="inline-citation"><a href="mqtt.html#FIWARE-2020" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="FIWARE 2020"></a></sup> <i class="uk-icon-clone article-img-caption-icon" data-uk-tooltip="{cls:'ttip'}" title="View in new tab"></i></div></figure><p>MQTT is a <strong>publish/subscribe</strong> messaging transport protocol. It has low complexity, small code footprint and consumes low network bandwidth for messaging. The lightweight protocol and small packet size support makes it suitable for applications such as Machine to Machine (M2M) and Internet of Things (<abbr data-title="&raquo; Internet of Things">IoT</abbr>).<sup class="inline-citation"><a href="mqtt.html#Stansberry-2015" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Stansberry 2015"></a></sup> 
+</p><p>The protocol runs over network protocols like <abbr data-title="&raquo; Transmission Control Program
+&raquo; Transmission Control Protocol">TCP</abbr>/<abbr data-title="&raquo; Internet Protocol">IP</abbr> that provide ordered, lossless, bidirectional connections. MQTT-<abbr data-title="&raquo; Secondary Node
+&raquo; Sequence Number
+&raquo; Serving Network
+&raquo; Subscriber Number">SN</abbr> v1.2, MQTT for Sensor Networks (formerly known as MQTT-S), is a version of the protocol targeted for embedded devices on non-<abbr data-title="&raquo; Transmission Control Program
+&raquo; Transmission Control Protocol">TCP</abbr>/<abbr data-title="&raquo; Internet Protocol">IP</abbr> networks,<sup class="inline-citation"><a href="mqtt.html#Piper-2013" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Piper 2013"></a></sup> such as Zigbee. Connectionless network transports such as User Datagram Protocol (<abbr data-title="&raquo; User Datagram Protocol">UDP</abbr>) are not suitable because packets may be lost or arrive out of order. The protocol enables transmit of messages either in 1-to-1 or 1-to-n configuration. The messaging transport is agnostic to the content of the payload.</p>
+      </div>
+    </section>
+    
+        <section id="discussion">
+      <h2>Discussion</h2>
+      <ul class="uk-list uk-list-space article-discussion-list">
+                <li id="qst-ans-0">
+          <article-question>What's the expansion for MQTT?</article-question>
+          <article-answer><p>The published OASIS standard does not give any expansion of MQTT.<sup class="inline-citation"><a href="mqtt.html#Banks-and-Gupta-2014" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Banks and Gupta 2014"></a></sup> 
+</p><p>MQTT used to mean <em>MQ Telemetry Transport</em>, where MQ is sometimes mistaken for Message Queue. In fact, MQ referred to IBM's MQ Series of products. Today, MQTT is not an acronym and it doesn't use traditional message queues.<sup class="inline-citation"><a href="mqtt.html#HiveMQ-2015a" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="HiveMQ 2015a"></a></sup> </p></article-answer>
+        </li>
+                <li id="qst-ans-1">
+          <article-question>How does the MQTT protocol work?</article-question>
+          <article-answer><figure class="article-discussion uk-align-left uk-thumbnail"><img width='638' height='359' src="images/article/10/8361.1490118261.s.jpg" data-fullsrc="/images/article/10/8361.1490118261.jpg" title="A broker mediates between publishers and subscribers. Source: Boyd 2014, slide 12." alt="A broker mediates between publishers and subscribers. Source: Boyd 2014, slide 12."><div class="uk-thumbnail-caption">A broker mediates between publishers and subscribers. Source: Boyd 2014, slide 12.<sup class="inline-citation"><a href="mqtt.html#Boyd-2014" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Boyd 2014, slide 12"></a></sup> <i class="uk-icon-clone article-img-caption-icon" data-uk-tooltip="{cls:'ttip'}" title="View in new tab"></i></div></figure><p>MQTT uses <strong>Publish/Subscribe</strong> model or pattern. Publishers publish messages. Subscribers receive messages if they have subscribed to the same. However, publishers and subscribers don't communicate to each other directly. There's an intermediate central <strong>Server</strong> or <strong>Broker</strong> that mediates in between. Broker filters all incoming messages and distributes them to subscribers accordingly. Publishers and subscribers are also called <strong>Clients</strong>.
+</p><p>Subscribers subscribe to messages that are of interest to them. Such filtering could be topic-based, content-based, or type-based. Topics could be organized in a hierarchy.<sup class="inline-citation"><a href="mqtt.html#HiveMQ-2015b" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="HiveMQ 2015b"></a></sup> 
+</p><p>With the publish/subscribe pattern, the publisher and subscribers don't need to know each other. They are not dependent on each other for initialization and synchronisation. Message delivery is one-to-many and can scale with respect to subscribers without burdening publishers.
+</p><p>It will also be apparent that MQTT operates unlike message queues. Messages cannot get stuck in a queue if no one reads them. In message queues, only one consumer can read the message. Message queues are also defined explicitly but in MQTT topics can be created on the fly.<sup class="inline-citation"><a href="mqtt.html#HiveMQ-2015b" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="HiveMQ 2015b"></a></sup> </p></article-answer>
+        </li>
+                <li id="qst-ans-2">
+          <article-question>What are the core features of MQTT?</article-question>
+          <article-answer><p>The core features of MQTT are:<sup class="inline-citation"><a href="mqtt.html#Gupta-2014" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Gupta 2014"></a></sup> 
+<ul class='list-in-ans'>
+<li>Simple to implement: This translates to small code and memory footprint for constrained devices.</li>
+<li>Lightweight and network-bandwidth efficient: Payload must be transferred without significant overhead.</li>
+<li>Handle abnormal client disconnection: Using what is called <strong>Last Will and Testament (<abbr data-title="&raquo; Last Will and Testament">LWT</abbr>)</strong>, if a client is not sending anything for some time, broker will automatically publish a message. For example, this can be useful to inform subscribers that an <abbr data-title="&raquo; Internet of Things">IoT</abbr> device (publisher) is not reachable.</li>
+<li>Transport protocol is payload data agnostic: Data can be binary, <abbr data-title="&raquo; JavaScript Object Notation">JSON</abbr> or any other format.</li>
+<li>Provides a Quality-of-Service data delivery: <abbr data-title="&raquo; Quality of Service">QoS</abbr> can be selected based on the needs of the application.</li>
+<li>Supports continuous session awareness: Sessions can be continued even across intermittent network connections. This implies clients need not subscribe again when they reconnect to server.<sup class="inline-citation"><a href="mqtt.html#Banks-et-al.-2018" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Banks et al. 2018, sec. 4.1"></a></sup> </li>
+<li><strong>Retained messages</strong>: The last published message (with retained flag set to true) is stored at the broker so that new subscribers can immediately obtain <em>last known good value</em> rather than wait for the next update from publisher.<sup class="inline-citation"><a href="mqtt.html#HiveMQ-2015c" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="HiveMQ 2015c"></a></sup> </li></ul></article-answer>
+        </li>
+                <li id="qst-ans-3">
+          <article-question>Why can't I use <abbr data-title="&raquo; Hyper Text Transfer Protocol">HTTP</abbr> instead of MQTT?</article-question>
+          <article-answer><figure class="article-discussion uk-align-left uk-thumbnail"><img width='1119' height='669' src="images/article/10/6577.1529256947.s.png" data-fullsrc="/images/article/10/6577.1529256947.png" title="MQTT outperforms HTTPS when sending 1024 1-byte messages to a mobile. Source: Nicholas 2012." alt="MQTT outperforms HTTPS when sending 1024 1-byte messages to a mobile. Source: Nicholas 2012."><div class="uk-thumbnail-caption">MQTT outperforms HTTPS when sending 1024 1-byte messages to a mobile. Source: Nicholas 2012.<sup class="inline-citation"><a href="mqtt.html#Nicholas-2012" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Nicholas 2012"></a></sup> <i class="uk-icon-clone article-img-caption-icon" data-uk-tooltip="{cls:'ttip'}" title="View in new tab"></i></div></figure><p>Altough popular on the web, <abbr data-title="&raquo; Hyper Text Transfer Protocol">HTTP</abbr> is not suitable for small data packets typical in <abbr data-title="&raquo; Internet of Things">IoT</abbr>. <abbr data-title="&raquo; Hyper Text Transfer Protocol">HTTP</abbr> is document-centric whereas MQTT is data-centric. <abbr data-title="&raquo; Hyper Text Transfer Protocol">HTTP</abbr> is a complex protocol. It's textual and therefore parsing <abbr data-title="&raquo; Hyper Text Transfer Protocol">HTTP</abbr> is not trivial. MQTT is binary and encoding/decoding MQTT packets is a lot easier. Because of its publish-subscribe model, data distribution is one-to-many in MQTT whereas in <abbr data-title="&raquo; Hyper Text Transfer Protocol">HTTP</abbr> it's limited to one-to-one.<sup class="inline-citation"><a href="mqtt.html#RF-Wireless-World-2018" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="RF Wireless World 2018"></a></sup> 
+</p><p>An MQTT PUBLISH message header is 2-4 bytes; CONNECT message header is 14 bytes; <abbr data-title="&raquo; Hyper Text Transfer Protocol">HTTP</abbr> header can be up to 1KB. A C implementation of an MQTT client can be as small as 30KB.<sup class="inline-citation"><a href="mqtt.html#Boyd-2014" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Boyd 2014, slide 14"></a></sup> 
+</p><p>MQTT uses less battery power, can send more messages per hour and send them more reliably than HTTPS. MQTT uses more battery power to initiate a connection but this quickly compensated by gains as the connection stays open longer.<sup class="inline-citation"><a href="mqtt.html#Nicholas-2012" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Nicholas 2012"></a></sup> 
+</p><p>In fact, there are alternatives to MQTT that may be more suitable candidates for comparison than <abbr data-title="&raquo; Hyper Text Transfer Protocol">HTTP</abbr>: <abbr data-title="&raquo; Advanced Message Queuing Protocol">AMQP</abbr>, <abbr data-title="&raquo; Constrained Application Protocol">CoAP</abbr>, XMPP, <abbr data-title="&raquo; Data Distribution Service">DDS</abbr>, STOMP.<sup class="inline-citation"><a href="mqtt.html#Patierno-2014" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Patierno 2014, slide 5"></a></sup> </p></article-answer>
+        </li>
+                <li id="qst-ans-4">
+          <article-question>What was MQTT designed for and where is it popularly used today?</article-question>
+          <article-answer><p>IBM originally designed MQTT protocol for communication between oil pipeline stations over low bandwidth satellite links.<sup class="inline-citation"><a href="mqtt.html#Piper-2011" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Piper 2011, pg. 10"></a></sup> It was later used for applications such as home automation and message broadcasting to ferries. Other areas where it's used include connected cars, asset tracking, smart metering, process control in manufacturing.<sup class="inline-citation"><a href="mqtt.html#Niblett-2013" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Niblett 2013, slide 12"></a></sup> 
+</p><p>MQTT gained traction in <abbr data-title="&raquo; Internet of Things">IoT</abbr> space due to its lightweight protocol. One popular example of its usage is by Facebook for its Facebook Messenger application.<sup class="inline-citation"><a href="mqtt.html#Zhang-2011" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Zhang 2011"></a></sup> </p></article-answer>
+        </li>
+                <li id="qst-ans-5">
+          <article-question>What are the control packets supported in MQTT?</article-question>
+          <article-answer><figure class="article-discussion uk-align-left uk-thumbnail"><img width='1033' height='680' src="images/article/10/8535.1529256970.s.jpg" data-fullsrc="/images/article/10/8535.1529256970.jpg" title="Typical message flow in MQTT. Source: Rathi 2017, slide 14." alt="Typical message flow in MQTT. Source: Rathi 2017, slide 14."><div class="uk-thumbnail-caption">Typical message flow in MQTT. Source: Rathi 2017, slide 14.<sup class="inline-citation"><a href="mqtt.html#Rathi-2017" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Rathi 2017, slide 14"></a></sup> <i class="uk-icon-clone article-img-caption-icon" data-uk-tooltip="{cls:'ttip'}" title="View in new tab"></i></div></figure><p>Control packets can be summarized in the following groups:<sup class="inline-citation"><a href="mqtt.html#Niblett-2013" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Niblett 2013, slide 22"></a></sup> 
+<ul class='list-in-ans'>
+<li><strong>Connection Management</strong>: CONNECT, CONNACK, DISCONNECT, PINGREQ, PINGRESP</li>
+<li><strong>Subscription Management</strong>: SUBSCRIBE, SUBACK, UNSUBSCRIBE, UNSUBACK</li>
+<li><strong>Message Delivery</strong>: PUBLISH, PUBACK, PUBREC, PUBREL, PUBCOMP</li>
+<li><strong>Authentication</strong>: AUTH</li></ul><p>AUTH packet was introduced in MQTT version 5.0.<sup class="inline-citation"><a href="mqtt.html#HiveMQ-2018" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="HiveMQ 2018"></a></sup> PINGREQ is sent from client to server to indicate that client is alive though not sending any other control packet.<sup class="inline-citation"><a href="mqtt.html#Banks-et-al.-2018" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Banks et al. 2018, sec. 3.12"></a></sup> </p></article-answer>
+        </li>
+                <li id="qst-ans-6">
+          <article-question>What sort of Quality of Service (<abbr data-title="&raquo; Quality of Service">QoS</abbr>) does MQTT offer?</article-question>
+          <article-answer><figure class="article-discussion uk-align-left uk-thumbnail"><img width='1134' height='680' src="images/article/10/4215.1529256993.s.jpg" data-fullsrc="/images/article/10/4215.1529256993.jpg" title="Message delivery at different QoS levels. Source: Patierno 2014, slide 8." alt="Message delivery at different QoS levels. Source: Patierno 2014, slide 8."><div class="uk-thumbnail-caption">Message delivery at different <abbr data-title="&raquo; Quality of Service">QoS</abbr> levels. Source: Patierno 2014, slide 8.<sup class="inline-citation"><a href="mqtt.html#Patierno-2014" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Patierno 2014, slide 8"></a></sup> <i class="uk-icon-clone article-img-caption-icon" data-uk-tooltip="{cls:'ttip'}" title="View in new tab"></i></div></figure><p>MQTT protocol defines three levels of <abbr data-title="&raquo; Quality of Service">QoS</abbr> for message delivery:<sup class="inline-citation"><a href="mqtt.html#Banks-et-al.-2018" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Banks et al. 2018, sec. 4.3"></a></sup> 
+<ul class='list-in-ans'>
+<li><strong><abbr data-title="&raquo; Quality of Service">QoS</abbr> 0</strong>: At most once delivery. Receiver does not sent a response. Sender does not retry and hence deletes the message locally as soon as it's sent. Message arrives at the receiver once or not at all.</li>
+<li><strong><abbr data-title="&raquo; Quality of Service">QoS</abbr> 1</strong>: At least once delivery. Receiver acknowledges the PUBLISH packet using the PUBACK packet.</li>
+<li><strong><abbr data-title="&raquo; Quality of Service">QoS</abbr> 2</strong>: Exactly once delivery. Neither loss nor packet duplication is acceptable. This <abbr data-title="&raquo; Quality of Service">QoS</abbr> level adds protocol overhead and specifies many rules for both sender and receiver. Packets PUBREC, PUBREL and PUBCOMP are involved instead of PUBACK used in <abbr data-title="&raquo; Quality of Service">QoS</abbr> 1.</li></ul><p>Sender will retry on unacknowledged packets only if client reconnects without a clean start and session is present.<sup class="inline-citation"><a href="mqtt.html#Banks-et-al.-2018" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Banks et al. 2018, sec. 4.4"></a></sup> </p></article-answer>
+        </li>
+                <li id="qst-ans-7">
+          <article-question>Does MQTT support security?</article-question>
+          <article-answer><p>MQTT is a transport protocol that concerns message transmission. So, security features such as privacy of data, authentication and authorization of users, etc. have to be taken care by the developer. MQTT specification provides guidance about possible implementations such as <abbr data-title="&raquo; Transport Layer Security">TLS</abbr>. Security-related aspects that need to be considered could be related to geography, industry or regulations.<sup class="inline-citation"><a href="mqtt.html#Banks-et-al.-2018" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Banks et al. 2018"></a></sup> 
+</p><p><abbr data-title="&raquo; Transport Layer Security">TLS</abbr>/<abbr data-title="&raquo; Secure Sockets Layer">SSL</abbr> security and payload encryption can be used. The <abbr data-title="&raquo; Internet Assigned Numbers Authority">IANA</abbr> has assigned port 8883 for MQTT over <abbr data-title="&raquo; Secure Sockets Layer">SSL</abbr>, or secure MQTT over <abbr data-title="&raquo; Transmission Control Program
+&raquo; Transmission Control Protocol">TCP</abbr> or <abbr data-title="&raquo; User Datagram Protocol">UDP</abbr>. Incidentally, port 1883 is for MQTT over <abbr data-title="&raquo; Transmission Control Program
+&raquo; Transmission Control Protocol">TCP</abbr> or <abbr data-title="&raquo; User Datagram Protocol">UDP</abbr><sup class="inline-citation"><a href="mqtt.html#MQTT-FAQ-2018" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="MQTT FAQ 2018"></a></sup> We should note that <abbr data-title="&raquo; Secure Sockets Layer">SSL</abbr> is not exactly lightweight and adds significant overhead.<sup class="inline-citation"><a href="mqtt.html#MQTT-FAQ-2018" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="MQTT FAQ 2018"></a></sup> 
+</p><p>Since Version 3.1 of MQTT protocol, there are two provisions:<sup class="inline-citation"><a href="mqtt.html#Banks-and-Gupta-2014" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Banks and Gupta 2014"></a></sup> 
+<ul class='list-in-ans'>
+<li>Add username and password in the CONNECT packet</li>
+<li>Include return codes in CONNACK packet to report security issues</li></ul><p>In Version 5.0, MQTT adds the AUTH control packet. This can be used to implement complex authentication methods such as SCRAM, Kerberos or OAuth.<sup class="inline-citation"><a href="mqtt.html#HiveMQ-2018" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="HiveMQ 2018"></a></sup> 
+</p><p>There is a supplemental publication<sup class="inline-citation"><a href="mqtt.html#Brown-and-Lamoureux-2014" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Brown and Lamoureux 2014"></a></sup> that focuses on MQTT protocol's integration within the <abbr data-title="&raquo; National Institute for Standards and Technology
+&raquo; National Institute of Standards and Technology">NIST</abbr> Framework for Improving Critical Infrastructure Cybersecurity, simply called <em>Cybersecurity Framework</em>.<sup class="inline-citation"><a href="mqtt.html#NIST-2018" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="NIST 2018"></a></sup> </p></article-answer>
+        </li>
+                <li id="qst-ans-8">
+          <article-question>What are the limiting factors of MQTT to consider while using it?</article-question>
+          <article-answer><p>Here are some limiting factors of MQTT:
+<ul class='list-in-ans'>
+<li>The structure of the published data is not known to the subscriber. This information should be shared or known beforehand. When topic-based filtering is used, publisher and subscribers must know the right topics to use.<sup class="inline-citation"><a href="mqtt.html#HiveMQ-2015b" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="HiveMQ 2015b"></a></sup> </li>
+<li>The delivery of a message is not confirmed as there is no automatic confirmation from the recipient. Moreover, the publisher also does not know if there are any subscribers.<sup class="inline-citation"><a href="mqtt.html#HiveMQ-2015b" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="HiveMQ 2015b"></a></sup> </li>
+<li>MQTT uses <abbr data-title="&raquo; Transmission Control Program
+&raquo; Transmission Control Protocol">TCP</abbr>, which needs complex handshaking and is not easy on memory and power requirements.<sup class="inline-citation"><a href="mqtt.html#Minteer-2017" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Minteer 2017, pg. 49"></a></sup> Standard states that <abbr data-title="&raquo; Transmission Control Program
+&raquo; Transmission Control Protocol">TCP</abbr> is a suitable transport and <abbr data-title="&raquo; User Datagram Protocol">UDP</abbr> is not. MQTT can also use <abbr data-title="&raquo; Transport Layer Security">TLS</abbr> or WebSocket.<sup class="inline-citation"><a href="mqtt.html#Banks-et-al.-2018" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Banks et al. 2018, sec. 4.2"></a></sup> </li>
+<li>Broker is centralized. This is not only a single point of failure but also can limit scalability.<sup class="inline-citation"><a href="mqtt.html#Minteer-2017" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Minteer 2017, pg. 49"></a></sup> However, real-world implementations overcome this by managing a <strong>distributed broker cluster</strong> that clients see as a single logical broker.<sup class="inline-citation"><a href="mqtt.html#HiveMQ-2016" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="HiveMQ 2016"></a></sup> Examples of such cluster implementations are <a rel="nofollow" class="article-link" href="https://www.hivemq.com/">HiveMQ</a>, <a rel="nofollow" class="article-link" href="https://vernemq.com/">VerneMQ</a>, and <a rel="nofollow" class="article-link" href="http://emqtt.io/">EMQ</a>.</li>
+<li>MQTT has no built-in security. Developers need to implement security on their own.<sup class="inline-citation"><a href="mqtt.html#Minteer-2017" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Minteer 2017, pg. 49"></a></sup> </li></ul></article-answer>
+        </li>
+                <li id="qst-ans-9">
+          <article-question>What software implementations of MQTT are available?</article-question>
+          <article-answer><p>Several MQTT client libraries are available based on different languages and for supporting varied devices. Broker or server implementations and tools are also available from different vendors as noted on <a rel="nofollow" class="article-link" href="https://github.com/mqtt/mqtt.github.io/wiki/software?id=software">MQTT GitHub Wiki</a>.<sup class="inline-citation"><a href="mqtt.html#MQTT-GitHub-2014" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="MQTT GitHub 2014"></a></sup> 
+</p><p>Eclipse Mosquitto, a MQTT broker implementation, is about 120kB and requires 3MB <abbr data-title="&raquo; Random Access Memory">RAM</abbr> for 1000 clients connected.<sup class="inline-citation"><a href="mqtt.html#Eclipse-Projects-2018c" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Eclipse Projects 2018c, Overview"></a></sup> 
+</p><p>Eclipse Paho client offers a number of features: automatic reconnect, offline buffering, message persistence, WebSocket or <abbr data-title="&raquo; Transmission Control Program
+&raquo; Transmission Control Protocol">TCP</abbr> support, blocking or non-blocking <abbr data-title="&raquo; Application Programming Interface">API</abbr>, and high availability.<sup class="inline-citation"><a href="mqtt.html#Eclipse-Foundation-2018b" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Eclipse Foundation 2018b"></a></sup> For embedded devices of limited resources, Paho offers an <abbr data-title="&raquo; American National Standards Institute">ANSI</abbr> standard C compliant library.<sup class="inline-citation"><a href="mqtt.html#Eclipse-Foundation-2018c" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Eclipse Foundation 2018c"></a></sup> 
+</p><p>RabbitMQ server uses <abbr data-title="&raquo; Advanced Message Queuing Protocol">AMQP</abbr> instead of MQTT but it offers a plugin for MQTT, making <abbr data-title="&raquo; Advanced Message Queuing Protocol">AMQP</abbr> interoperable with MQTT.<sup class="inline-citation"><a href="mqtt.html#Joubert-2012" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Joubert 2012"></a></sup> </p></article-answer>
+        </li>
+              </ul>
+    </section>
+    
+        <section id="milestones">
+      <h2>Milestones</h2>
+      <div id="cd-timeline" class="cd-container sec-milestones">
+                <div class="cd-timeline-block">
+          <div class="cd-timeline-date animated ">
+            <div class="year-only">1999</div>
+          </div>
+          <div class="cd-timeline-content animated "><p>MQTT is developed by Andy Stanford-Clark (IBM) and Arlen Nipper (Arcom, later Eurotech).<sup class="inline-citation"><a href="mqtt.html#HiveMQ-2015a" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="HiveMQ 2015a"></a></sup> It's used to send sensor data gathered from an oil pipeline. Data is sent to a <abbr data-title="&raquo; Supervisory Control and Data Acquisition">SCADA</abbr> host system via low-bandwidth links.<sup class="inline-citation"><a href="mqtt.html#Piper-2011" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Piper 2011, pg. 10"></a></sup> </p></div>
+        </div>
+                <div class="cd-timeline-block">
+          <div class="cd-timeline-date animated ">
+            <div class="">Aug<br>2010</div>
+          </div>
+          <div class="cd-timeline-content animated "><p>IBM releases MQTT V3.1 and makes it available to the public. They define MQTT as,<sup class="inline-citation"><a href="mqtt.html#Locke-2010" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Locke 2010"></a></sup></p><blockquote>A lightweight broker-based publish/subscribe messaging protocol designed to be open, simple, lightweight and easy to implement.</blockquote></div>
+        </div>
+                <div class="cd-timeline-block">
+          <div class="cd-timeline-date animated ">
+            <div class="">Aug<br>2011</div>
+          </div>
+          <div class="cd-timeline-content animated "><p>Facebook announces in a blog post that their <em>Facebook Messenger</em> is using MQTT. Without it, they experienced long latency in the order of seconds. With MQTT, it's down to hundreds of milliseconds.<sup class="inline-citation"><a href="mqtt.html#Zhang-2011" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Zhang 2011"></a></sup> </p></div>
+        </div>
+                <div class="cd-timeline-block">
+          <div class="cd-timeline-date animated ">
+            <div class="">Nov<br>2011</div>
+          </div>
+          <div class="cd-timeline-content animated "><p>IBM and Eurotech donate MQTT code to the Eclipse Foundation.<sup class="inline-citation"><a href="mqtt.html#MQTT-FAQ-2018" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="MQTT FAQ 2018"></a></sup> A month later, Eclipse Foundation releases open source Java and C client code for MQTT. Client-side MQTT code is under the project named <strong>Eclipse Paho</strong>.<sup class="inline-citation"><a href="mqtt.html#Eclipse-Foundation-2018a" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Eclipse Foundation 2018a"></a></sup> Today client code from Paho is available in a number of languages.<sup class="inline-citation"><a href="mqtt.html#Eclipse-Foundation-2018b" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Eclipse Foundation 2018b"></a></sup> </p></div>
+        </div>
+                <div class="cd-timeline-block">
+          <div class="cd-timeline-date animated ">
+            <div class="">Oct<br>2014</div>
+          </div>
+          <div class="cd-timeline-content animated "><p>MQTT Version 3.1.1 is officially approved as an OASIS Standard.<sup class="inline-citation"><a href="mqtt.html#Banks-and-Gupta-2014" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Banks and Gupta 2014"></a></sup> In June 2016, this is published by ISO as ISO/<abbr data-title="&raquo; International Electrotechnical Commission">IEC</abbr> 20922:2016.<sup class="inline-citation"><a href="mqtt.html#ISO-Standard-2016" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="ISO Standard 2016"></a></sup> </p></div>
+        </div>
+                <div class="cd-timeline-block">
+          <div class="cd-timeline-date animated ">
+            <div class="">Feb<br>2015</div>
+          </div>
+          <div class="cd-timeline-content animated "><p>As MQTT broker implementation, open source <strong>Eclipse Mosquitto 1.4</strong> is released, the first release by the Eclipse Foundation.<sup class="inline-citation"><a href="mqtt.html#Eclipse-Projects-2018a" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Eclipse Projects 2018a"></a></sup> Version 1.0 of Mosquitto was available as early as 2012.<sup class="inline-citation"><a href="mqtt.html#andyp-2012" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="andyp 2012"></a></sup> The growth of MQTT can be attributed to the open source nature of Eclipse Paho and Mosquitto.<sup class="inline-citation"><a href="mqtt.html#Eclipse-Foundataion-2015" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Eclipse Foundataion 2015"></a></sup> </p></div>
+        </div>
+                <div class="cd-timeline-block">
+          <div class="cd-timeline-date animated ">
+            <div class="">Apr<br>2016</div>
+          </div>
+          <div class="cd-timeline-content animated "><figure class="uk-align-right uk-thumbnail"><img width='648' height='364' src="images/article/10/6016.1531313236.s.png" data-fullsrc="/images/article/10/6016.1531313236.png" title="EMQ broker uses clustering to route messages. Source: EMQ 2018c." alt="EMQ broker uses clustering to route messages. Source: EMQ 2018c."><div class="uk-thumbnail-caption milestone-img-caption">EMQ broker uses clustering to route messages. Source: EMQ 2018c.<sup class="inline-citation"><a href="mqtt.html#EMQ-2018c" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="EMQ 2018c"></a></sup> <i class="uk-icon-clone article-img-caption-icon" data-uk-tooltip="{cls:'ttip'}" title="View in new tab"></i></div></figure><p>Created four years earlier by Feng Lee,<sup class="inline-citation"><a href="mqtt.html#EMQ-2018a" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="EMQ 2018a"></a></sup> version 1.0 of <strong>EMQ (Erlang MQTT Broker)</strong> is released.<sup class="inline-citation"><a href="mqtt.html#EMQ-2018b" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="EMQ 2018b"></a></sup> Written in Erlang/OTP, EMQ is open source, distributed, and massively scalable. Messages are routed through clusters that apply <em>Topic Trie Match</em> and <em>Routing Table Lookup</em>.<sup class="inline-citation"><a href="mqtt.html#EMQ-2018c" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="EMQ 2018c"></a></sup> </p></div>
+        </div>
+                <div class="cd-timeline-block">
+          <div class="cd-timeline-date animated ">
+            <div class="">May<br>2018</div>
+          </div>
+          <div class="cd-timeline-content animated "><p>OASIS releases <strong>MQTT Version 5.0</strong>. It supercedes the previous standard.<sup class="inline-citation"><a href="mqtt.html#Banks-et-al.-2018" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Banks et al. 2018"></a></sup> Eclipse Paho 1.4.0 is expected to support this by June 2018 in C and Java.<sup class="inline-citation"><a href="mqtt.html#Eclipse-Projects-2018b" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Eclipse Projects 2018b"></a></sup> V5.0 support from Eclipse Mosquitto is expected by August 2018.<sup class="inline-citation"><a href="mqtt.html#Raue-2018" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="Raue 2018"></a></sup> It's expected that the latest version will go into production systems by Q4 2018.<sup class="inline-citation"><a href="mqtt.html#HiveMQ-2017" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="HiveMQ 2017"></a></sup> <a rel="nofollow" class="article-link" href="https://www.hivemq.com/blog/mqtt-5-foundational-changes-in-the-protocol/">Main changes due to V5.0</a> are summarized by a HiveMQ blog post.<sup class="inline-citation"><a href="mqtt.html#HiveMQ-2018" class="uk-icon-justify uk-icon-asterisk" data-uk-tooltip="{cls:'ttip'}" title="HiveMQ 2018"></a></sup> </p></div>
+        </div>
+              </div>
+    </section>
+    
+        <section id="sample-code">
+      <h2>Sample Code</h2>
+      <div class="article-embed-code">
+        <ul class="uk-tab uk-tab-grid" data-uk-tab="{connect:'#tab-content', animation: 'fade', swiping: false}">
+                                  <li class="uk-active" aria-expanded="true"><a href="mqtt.html#">cpp</a></li>
+                                              <li class="" aria-expanded="false"><a href="mqtt.html#">javascript</a></li>
+                                              <li class="" aria-expanded="false"><a href="mqtt.html#">python</a></li>
+                              </ul>
+        <ul id="tab-content" class="uk-switcher uk-margin">
+                                  <li class="uk-active" aria-hidden="false">
+                        <pre class="cpp" style="font-family:monospace;"><span style="color: #666666;">// Use of Embedded MQTT C/C++ client libraries from Eclipse Paho</span>
+<span style="color: #666666;">// Source: https://www.eclipse.org/paho/clients/c/embedded/</span>
+&nbsp;
+<span style="color: #339900;">#define MQTTCLIENT_QOS2 1</span>
+&nbsp;
+<span style="color: #339900;">#include &quot;MQTTClient.h&quot;</span>
+&nbsp;
+<span style="color: #339900;">#define DEFAULT_STACK_SIZE -1</span>
+&nbsp;
+<span style="color: #339900;">#include &quot;linux.cpp&quot;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> arrivedcount <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+&nbsp;
+<span style="color: #0000ff;">void</span> messageArrived<span style="color: #008000;">&#40;</span>MQTT<span style="color: #008080;">::</span><span style="color: #007788;">MessageData</span><span style="color: #000040;">&amp;</span> md<span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+    MQTT<span style="color: #008080;">::</span><span style="color: #007788;">Message</span> <span style="color: #000040;">&amp;</span>message <span style="color: #000080;">=</span> md.<span style="color: #007788;">message</span><span style="color: #008080;">;</span>
+&nbsp;
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;Message %d arrived: qos %d, retained %d, dup %d, packetid %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>,
+		<span style="color: #000040;">++</span>arrivedcount, message.<span style="color: #007788;">qos</span>, message.<span style="color: #007788;">retained</span>, message.<span style="color: #007788;">dup</span>, message.<span style="color: #007788;">id</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+    <span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;Payload %.*s<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span>message.<span style="color: #007788;">payloadlen</span>, <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">char</span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span>message.<span style="color: #007788;">payload</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> argc, <span style="color: #0000ff;">char</span><span style="color: #000040;">*</span> argv<span style="color: #008000;">&#91;</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span>
+<span style="color: #008000;">&#123;</span>
+    IPStack ipstack <span style="color: #000080;">=</span> IPStack<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+    <span style="color: #0000ff;">float</span> version <span style="color: #000080;">=</span> <span style="color:#800080;">0.3</span><span style="color: #008080;">;</span>
+    <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span><span style="color: #000040;">*</span> topic <span style="color: #000080;">=</span> <span style="color: #FF0000;">&quot;mbed-sample&quot;</span><span style="color: #008080;">;</span>
+&nbsp;
+    <span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;Version is %f<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, version<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+    MQTT<span style="color: #008080;">::</span><span style="color: #007788;">Client</span> client <span style="color: #000080;">=</span> MQTT<span style="color: #008080;">::</span><span style="color: #007788;">Client</span><span style="color: #008000;">&#40;</span>ipstack<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+    <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span><span style="color: #000040;">*</span> hostname <span style="color: #000080;">=</span> <span style="color: #FF0000;">&quot;iot.eclipse.org&quot;</span><span style="color: #008080;">;</span>
+    <span style="color: #0000ff;">int</span> port <span style="color: #000080;">=</span> <span style="color: #0000dd;">1883</span><span style="color: #008080;">;</span>
+    <span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;Connecting to %s:%d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, hostname, port<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+    <span style="color: #0000ff;">int</span> rc <span style="color: #000080;">=</span> ipstack.<span style="color: #007788;">connect</span><span style="color: #008000;">&#40;</span>hostname, port<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>rc <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span>
+	    <span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;rc from TCP connect is %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, rc<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;MQTT connecting<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+    MQTTPacket_connectData data <span style="color: #000080;">=</span> MQTTPacket_connectData_initializer<span style="color: #008080;">;</span>
+    data.<span style="color: #007788;">MQTTVersion</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">3</span><span style="color: #008080;">;</span>
+    data.<span style="color: #007788;">clientID</span>.<span style="color: #007788;">cstring</span> <span style="color: #000080;">=</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">char</span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span><span style="color: #FF0000;">&quot;mbed-icraggs&quot;</span><span style="color: #008080;">;</span>
+    rc <span style="color: #000080;">=</span> client.<span style="color: #007788;">connect</span><span style="color: #008000;">&#40;</span>data<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>rc <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span>
+	    <span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;rc from MQTT connect is %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, rc<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;MQTT connected<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+    rc <span style="color: #000080;">=</span> client.<span style="color: #007788;">subscribe</span><span style="color: #008000;">&#40;</span>topic, MQTT<span style="color: #008080;">::</span><span style="color: #007788;">QOS2</span>, messageArrived<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+    <span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>rc <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span>
+        <span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;rc from MQTT subscribe is %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, rc<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+    MQTT<span style="color: #008080;">::</span><span style="color: #007788;">Message</span> message<span style="color: #008080;">;</span>
+&nbsp;
+    <span style="color: #666666;">// QoS 0</span>
+    <span style="color: #0000ff;">char</span> buf<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+    <span style="color: #0000dd;">sprintf</span><span style="color: #008000;">&#40;</span>buf, <span style="color: #FF0000;">&quot;Hello World!  QoS 0 message from app version %f&quot;</span>, version<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+    message.<span style="color: #007788;">qos</span> <span style="color: #000080;">=</span> MQTT<span style="color: #008080;">::</span><span style="color: #007788;">QOS0</span><span style="color: #008080;">;</span>
+    message.<span style="color: #007788;">retained</span> <span style="color: #000080;">=</span> <span style="color: #0000ff;">false</span><span style="color: #008080;">;</span>
+    message.<span style="color: #007788;">dup</span> <span style="color: #000080;">=</span> <span style="color: #0000ff;">false</span><span style="color: #008080;">;</span>
+    message.<span style="color: #007788;">payload</span> <span style="color: #000080;">=</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">void</span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span>buf<span style="color: #008080;">;</span>
+    message.<span style="color: #007788;">payloadlen</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">strlen</span><span style="color: #008000;">&#40;</span>buf<span style="color: #008000;">&#41;</span><span style="color: #000040;">+</span><span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+    rc <span style="color: #000080;">=</span> client.<span style="color: #007788;">publish</span><span style="color: #008000;">&#40;</span>topic, message<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>rc <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;Error %d from sending QoS 0 message<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, rc<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+    <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>arrivedcount <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span>
+        client.<span style="color: #007788;">yield</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+    rc <span style="color: #000080;">=</span> client.<span style="color: #007788;">unsubscribe</span><span style="color: #008000;">&#40;</span>topic<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+    <span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>rc <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span>
+        <span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;rc from unsubscribe was %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, rc<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+    rc <span style="color: #000080;">=</span> client.<span style="color: #007788;">disconnect</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+    <span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>rc <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span>
+        <span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;rc from disconnect was %d<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, rc<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+    ipstack.<span style="color: #007788;">disconnect</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+    <span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;</pre>
+            </li>
+                                  <li class="" aria-hidden="true">
+                        <pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">// MQTT.js: for Node.js and browser</span>
+<span style="color: #006600; font-style: italic;">// Example showing publisher and subscriber in the same code for simplicity</span>
+<span style="color: #006600; font-style: italic;">// Source: https://github.com/mqttjs/MQTT.js/</span>
+<span style="color: #000066; font-weight: bold;">var</span> mqtt <span style="color: #339933;">=</span> require<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'mqtt'</span><span style="color: #009900;">&#41;</span>
+<span style="color: #000066; font-weight: bold;">var</span> client  <span style="color: #339933;">=</span> mqtt.<span style="color: #660066;">connect</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'mqtt://test.mosquitto.org'</span><span style="color: #009900;">&#41;</span>
+&nbsp;
+client.<span style="color: #660066;">on</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'connect'</span><span style="color: #339933;">,</span> <span style="color: #000066; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+  client.<span style="color: #660066;">subscribe</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'presence'</span><span style="color: #009900;">&#41;</span>
+  client.<span style="color: #660066;">publish</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'presence'</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'Hello mqtt'</span><span style="color: #009900;">&#41;</span>
+<span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span>
+&nbsp;
+client.<span style="color: #660066;">on</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'message'</span><span style="color: #339933;">,</span> <span style="color: #000066; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span>topic<span style="color: #339933;">,</span> message<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+  <span style="color: #006600; font-style: italic;">// message is Buffer</span>
+  console.<span style="color: #660066;">log</span><span style="color: #009900;">&#40;</span>message.<span style="color: #660066;">toString</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span>
+  client.<span style="color: #660066;">end</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
+<span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span>
+&nbsp;</pre>
+            </li>
+                                  <li class="" aria-hidden="true">
+                        <pre class="python" style="font-family:monospace;"><span style="color: #808080; font-style: italic;"># Example showing the use of Eclipse Paho: client code in Python</span>
+<span style="color: #808080; font-style: italic;"># Source: https://pypi.org/project/paho-mqtt/</span>
+<span style="color: #ff7700;font-weight:bold;">import</span> paho.<span style="color: black;">mqtt</span>.<span style="color: black;">client</span> <span style="color: #ff7700;font-weight:bold;">as</span> mqtt
+&nbsp;
+<span style="color: #808080; font-style: italic;"># The callback for when the client receives a CONNACK response from the server.</span>
+<span style="color: #ff7700;font-weight:bold;">def</span> on_connect<span style="color: black;">&#40;</span>client<span style="color: #66cc66;">,</span> userdata<span style="color: #66cc66;">,</span> flags<span style="color: #66cc66;">,</span> rc<span style="color: black;">&#41;</span>:
+    <span style="color: #ff7700;font-weight:bold;">print</span><span style="color: black;">&#40;</span><span style="color: #483d8b;">&quot;Connected with result code &quot;</span>+<span style="color: #008000;">str</span><span style="color: black;">&#40;</span>rc<span style="color: black;">&#41;</span><span style="color: black;">&#41;</span>
+&nbsp;
+    <span style="color: #808080; font-style: italic;"># Subscribing in on_connect() means that if we lose the connection and</span>
+    <span style="color: #808080; font-style: italic;"># reconnect then subscriptions will be renewed.</span>
+    client.<span style="color: black;">subscribe</span><span style="color: black;">&#40;</span><span style="color: #483d8b;">&quot;$SYS/#&quot;</span><span style="color: black;">&#41;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;"># The callback for when a PUBLISH message is received from the server.</span>
+<span style="color: #ff7700;font-weight:bold;">def</span> on_message<span style="color: black;">&#40;</span>client<span style="color: #66cc66;">,</span> userdata<span style="color: #66cc66;">,</span> msg<span style="color: black;">&#41;</span>:
+    <span style="color: #ff7700;font-weight:bold;">print</span><span style="color: black;">&#40;</span>msg.<span style="color: black;">topic</span>+<span style="color: #483d8b;">&quot; &quot;</span>+<span style="color: #008000;">str</span><span style="color: black;">&#40;</span>msg.<span style="color: black;">payload</span><span style="color: black;">&#41;</span><span style="color: black;">&#41;</span>
+&nbsp;
+client <span style="color: #66cc66;">=</span> mqtt.<span style="color: black;">Client</span><span style="color: black;">&#40;</span><span style="color: black;">&#41;</span>
+client.<span style="color: black;">on_connect</span> <span style="color: #66cc66;">=</span> on_connect
+client.<span style="color: black;">on_message</span> <span style="color: #66cc66;">=</span> on_message
+&nbsp;
+client.<span style="color: black;">connect</span><span style="color: black;">&#40;</span><span style="color: #483d8b;">&quot;iot.eclipse.org&quot;</span><span style="color: #66cc66;">,</span> <span style="color: #ff4500;">1883</span><span style="color: #66cc66;">,</span> <span style="color: #ff4500;">60</span><span style="color: black;">&#41;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;"># Blocking call that processes network traffic, dispatches callbacks and</span>
+<span style="color: #808080; font-style: italic;"># handles reconnecting.</span>
+<span style="color: #808080; font-style: italic;"># Other loop*() functions are available that give a threaded interface and a</span>
+<span style="color: #808080; font-style: italic;"># manual interface.</span>
+client.<span style="color: black;">loop_forever</span><span style="color: black;">&#40;</span><span style="color: black;">&#41;</span>
+&nbsp;</pre>
+            </li>
+                  </ul>
+      </div>
+    </section>
+    
+        <section id="references">
+    <h2>References<i class="uk-icon-external-link external-link-icon pull-right" data-uk-tooltip="{cls:'ttip'}" title="External links"></i></h2>
+    <ol class="article-citations">
+              <li id="Banks-and-Gupta-2014">
+                  <a rel="nofollow" href="http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html" data-archivedts="20200620172259">
+            Banks, Andrew and Rahul Gupta, eds. 2014. &quot;MQTT Version 3.3.1.&quot; OASIS Standard, October 29. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="Banks-et-al.-2018">
+                  <a rel="nofollow" href="http://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html" data-archivedts="20200620172310">
+            Banks, Andrew, Ed Briggs, Ken Borgendale, and Rahul Gupta, eds. 2018. &quot;MQTT Version 5.0.&quot; OASIS Committee Specification 02, May 15. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="Boyd-2014">
+                  <a rel="nofollow" href="https://www.slideshare.net/BryanBoyd/mqtt-austin-api" data-archivedts="20200620172401">
+            Boyd, Bryan. 2014. &quot;MQTT - A practical protocol for the Internet of Things.&quot; SlideShare, LinkedIn, August 28. Accessed 2017-03-21.
+          </a>
+                </li>
+              <li id="Brown-and-Lamoureux-2014">
+                  <a rel="nofollow" href="http://docs.oasis-open.org/mqtt/mqtt-nist-cybersecurity/v1.0/mqtt-nist-cybersecurity-v1.0.html" data-archivedts="20200620172354">
+            Brown, Geoff and Louis-Philippe Lamoureux. 2014. &quot;MQTT and the NIST Cybersecurity Framework Version 1.0.&quot; OASIS Committee Note 01, May 28. Accessed 2017-03-04.
+          </a>
+                </li>
+              <li id="EMQ-2018a">
+                  <a rel="nofollow" href="http://emqtt.io/about" data-archivedts="20200620172656">
+            EMQ. 2018a. &quot;About.&quot; Accessed 2018-07-11.
+          </a>
+                </li>
+              <li id="EMQ-2018b">
+                  <a rel="nofollow" href="http://emqtt.io/changelogs" data-archivedts="20200620172702">
+            EMQ. 2018b. &quot;EMQ ChangeLog and Release Notes.&quot; Accessed 2018-07-11.
+          </a>
+                </li>
+              <li id="EMQ-2018c">
+                  <a rel="nofollow" href="http://emqtt.io/" data-archivedts="20200620172714">
+            EMQ. 2018c. &quot;EMQ Homepage.&quot; Accessed 2018-07-11.
+          </a>
+                </li>
+              <li id="Eclipse-Foundataion-2015">
+                  <a rel="nofollow" href="https://www.eclipse.org/org/press-release/20150304_paho_mosquitto.php" data-archivedts="20200620172555">
+            Eclipse Foundataion. 2015. &quot;New Release of Eclipse Paho and Eclipse Mosquitto Continue Momentum of the Growing Open Source IoT Community and MQTT.&quot; Press release, March 4. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="Eclipse-Foundation-2018a">
+                  <a rel="nofollow" href="https://www.eclipse.org/proposals/technology.paho/" data-archivedts="20200620172510">
+            Eclipse Foundation. 2018a. &quot;Paho.&quot; Eclipse Proposals. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="Eclipse-Foundation-2018b">
+                  <a rel="nofollow" href="https://www.eclipse.org/paho/downloads.php#" data-archivedts="20200620172517">
+            Eclipse Foundation. 2018b. &quot;Eclipse Paho Downloads.&quot; Eclipse Paho. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="Eclipse-Foundation-2018c">
+                  <a rel="nofollow" href="https://www.eclipse.org/paho/clients/c/embedded/" data-archivedts="20200620172524">
+            Eclipse Foundation. 2018c. &quot;Embedded MQTT C/C++ Client Libraries.&quot; Eclipse Paho. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="Eclipse-Projects-2018a">
+                  <a rel="nofollow" href="https://projects.eclipse.org/projects/iot.mosquitto/releases/1.4" data-archivedts="20161114095327">
+            Eclipse Projects. 2018a. &quot;Eclipse Mosquitto 1.4.&quot; Releases, Eclipse Mosquitto. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="Eclipse-Projects-2018b">
+                  <a rel="nofollow" href="https://projects.eclipse.org/projects/iot.paho/releases/1.4.0-photon" data-archivedts="20190415233724">
+            Eclipse Projects. 2018b. &quot;Eclipse Paho 1.4.0 (Photon).&quot; Releases, Eclipse Paho. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="Eclipse-Projects-2018c">
+                  <a rel="nofollow" href="https://projects.eclipse.org/projects/technology.mosquitto" >
+            Eclipse Projects. 2018c. &quot;Eclipse Mosquitto.&quot; Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="FIWARE-2020">
+                  <a rel="nofollow" href="https://fiware-tutorials.readthedocs.io/en/latest/iot-over-mqtt/index.html" >
+            FIWARE. 2020. &quot;IoT over MQTT.&quot; FIWARE, June 30. Accessed 2020-07-20.
+          </a>
+                </li>
+              <li id="Gupta-2014">
+                  <a rel="nofollow" href="https://www.ibm.com/developerworks/community/blogs/5things/entry/5_things_to_know_about_mqtt_the_protocol_for_internet_of_things?lang=en_us" >
+            Gupta, Rahul. 2014. &quot;5 Things to Know About MQTT – The Protocol for Internet of Things.&quot; IBM developerWorks Blog, September 23. Accessed 2018-06-17.
+          </a>
+                </li>
+              <li id="HiveMQ-2015a">
+                  <a rel="nofollow" href="https://www.hivemq.com/blog/mqtt-essentials-part-1-introducing-mqtt" data-archivedts="20200620172418">
+            HiveMQ. 2015a. &quot;MQTT Essentials: Part 1 – Introducing MQTT.&quot; HiveMQ Blog, January 12. Updated 2017-05-04. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="HiveMQ-2015b">
+                  <a rel="nofollow" href="https://www.hivemq.com/blog/mqtt-essentials-part2-publish-subscribe" data-archivedts="20200620172425">
+            HiveMQ. 2015b. &quot;MQTT Essentials Part 2: Publish &amp; Subscribe.&quot; HiveMQ Blog, January 19. Updated 2018-01-08. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="HiveMQ-2015c">
+                  <a rel="nofollow" href="https://www.hivemq.com/blog/mqtt-essentials-part-8-retained-messages" data-archivedts="20200620172432">
+            HiveMQ. 2015c. &quot;MQTT Essentials Part 8: Retained Messages.&quot; HiveMQ Blog, March 02. Updated 2018-06-18. Accessed 2018-06-19.
+          </a>
+                </li>
+              <li id="HiveMQ-2016">
+                  <a rel="nofollow" href="https://www.hivemq.com/blog/clustering-mqtt-introduction-benefits/" data-archivedts="20200620172440">
+            HiveMQ. 2016. &quot;Clustering MQTT – Introduction &amp; Benefits.&quot; HiveMQ Blog, October 06. Updated 2018-06-18. Accessed 2018-06-19.
+          </a>
+                </li>
+              <li id="HiveMQ-2017">
+                  <a rel="nofollow" href="https://www.hivemq.com/blog/mqtt-5-time-to-upgrade-yet/" data-archivedts="20200620172447">
+            HiveMQ. 2017. &quot;MQTT 5: Is it time to upgrade to MQTT 5 yet?&quot; HiveMQ Blog, December 19. Updated 2018-06-01. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="HiveMQ-2018">
+                  <a rel="nofollow" href="https://www.hivemq.com/blog/mqtt-5-foundational-changes-in-the-protocol/" >
+            HiveMQ. 2018. &quot;MQTT 5: Foundational changes in the protocol.&quot; HiveMQ Blog, January 8. Updated 2018-01-09. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="ISO-Standard-2016">
+                  <a rel="nofollow" href="https://www.iso.org/standard/69466.html" data-archivedts="20200620172409">
+            ISO Standard. 2016. &quot;ISO/IEC 20922:2016: Information technology -- Message Queuing Telemetry Transport (MQTT) v3.1.1.&quot; June. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="Joubert-2012">
+                  <a rel="nofollow" href="http://www.rabbitmq.com/blog/2012/09/12/mqtt-adapter/" data-archivedts="20200714190024">
+            Joubert, Emile. 2012. &quot;MQTT Adapter.&quot; RabbitMQ Blog, September 12. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="Locke-2010">
+                  <a rel="nofollow" href="https://www.ibm.com/developerworks/library/ws-mqtt/" >
+            Locke, Dave. 2010. &quot;MQ Telemetry Transport (MQTT) V3.1 Protocol Specification.&quot; IBM developerWorks, August 19. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="MQTT-FAQ-2018">
+                  <a rel="nofollow" href="http://mqtt.org/faq" data-archivedts="20200620172340">
+            MQTT FAQ. 2018. &quot;Frequently Asked Questions.&quot; MQTT.org. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="MQTT-GitHub-2014">
+                  <a rel="nofollow" href="https://github.com/mqtt/mqtt.github.io/wiki/software?id=software" data-archivedts="20200620172331">
+            MQTT GitHub. 2014. &quot;Software mqtt/mqtt.github.io.&quot; GitHub Wiki, August 20. Accessed 2017-03-04.
+          </a>
+                </li>
+              <li id="Minteer-2017">
+                  Minteer, Andrew. 2017. &quot;Analytics for the Internet of Things (IoT).&quot; Packt Publishing, July.
+                </li>
+              <li id="NIST-2018">
+                  <a rel="nofollow" href="https://www.nist.gov/news-events/news/2018/04/nist-releases-version-11-its-popular-cybersecurity-framework" data-archivedts="20200620172347">
+            NIST. 2018. &quot;NIST Releases Version 1.1 of its Popular Cybersecurity Framework.&quot; NIST, April 16. Accessed 2017-03-04.
+          </a>
+                </li>
+              <li id="Niblett-2013">
+                  <a rel="nofollow" href="https://www.slideshare.net/InfoQ/embedded-java-and-mqtt" data-archivedts="20200620172609">
+            Niblett, Peter. 2013. &quot;Embedded Java and MQTT.&quot; InfoQ, via SlideShare, September 2. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="Nicholas-2012">
+                  <a rel="nofollow" href="http://stephendnicholas.com/posts/power-profiling-mqtt-vs-https" data-archivedts="20200620172625">
+            Nicholas, Stephen. 2012. &quot;Power Profiling: HTTPS Long Polling vs. MQTT with SSL, on Android.&quot; May 31. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="Patierno-2014">
+                  <a rel="nofollow" href="https://www.slideshare.net/paolopat/mqtt-iot-protocols-comparison" data-archivedts="20200620172601">
+            Patierno, Paolo. 2014. &quot;MQTT &amp; IoT protocols comparison.&quot; Microsoft Embedded Conference, Napoli, February 15. SlideShare, February 19. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="Piper-2011">
+                  <a rel="nofollow" href="http://www.ibm.com/podcasts/software/websphere/connectivity/piper_diaz_nipper_mq_tt_11182011.pdf" data-archivedts="20200620172455">
+            Piper, Andy. 2011. &quot;Interview with Angel Diaz and Arlen Nipper.&quot; IBM Podcast, November 18. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="Piper-2013">
+                  <a rel="nofollow" href="http://mqtt.org/2013/12/mqtt-for-sensor-networks-mqtt-sn" data-archivedts="20200720104956">
+            Piper, Andy. 2013. &quot;MQTT for Sensor Networks – MQTT-SN.&quot; Blog, MQTT, December 2. Accessed 2020-07-20.
+          </a>
+                </li>
+              <li id="RF-Wireless-World-2018">
+                  <a rel="nofollow" href="http://www.rfwireless-world.com/Terminology/MQTT-vs-HTTP.html" data-archivedts="20200620172649">
+            RF Wireless World. 2018. &quot;MQTT vs HTTP | Difference between MQTT and HTTP protocols.&quot; Accessed 2018-06-17.
+          </a>
+                </li>
+              <li id="Rathi-2017">
+                  <a rel="nofollow" href="https://www.slideshare.net/piyushrathi52/mqttmessage-queue-telemetry-protocol-presentation" data-archivedts="20200620172617">
+            Rathi, Piyush. 2017. &quot;Mqtt (Message queue telemetry protocol).&quot; Govt. Engineering College Ajmer, via SlideShare, March 6. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="Raue-2018">
+                  <a rel="nofollow" href="https://mosquitto.org/blog/2018/05/press-release/" data-archivedts="20200620172641">
+            Raue, Kristian. 2018. &quot;New 1.5 release, MQTT 5.0 roadmap and commercial sponsor for Open-Source Eclipse Mosquitto MQTT Broker.&quot; Press release, Eclipse Mosquitto, May 7. Accessed 2018-06-17.
+          </a>
+                </li>
+              <li id="Stansberry-2015">
+                  <a rel="nofollow" href="https://www.electronicdesign.com/technologies/iot/article/21800998/mqtt-and-coap-underlying-protocols-for-the-iot" data-archivedts="20200720104906">
+            Stansberry, James. 2015. &quot;MQTT and CoAP: Underlying Protocols for the IoT.&quot; ElectronicDesign, October 7. Accessed 2020-07-20.
+          </a>
+                </li>
+              <li id="Zhang-2011">
+                  <a rel="nofollow" href="https://www.facebook.com/notes/facebook-engineering/building-facebook-messenger/10150259350998920" data-archivedts="20200620172322">
+            Zhang, Lucy. 2011. &quot;Building Facebook Messenger.&quot; Facebook Notes, August 12. Accessed 2018-06-16.
+          </a>
+                </li>
+              <li id="andyp-2012">
+                  <a rel="nofollow" href="http://mqtt.org/2012/09/mosquitoes-rabbits-facebook-portals-news-round-up" data-archivedts="20200620172631">
+            andyp. 2012. &quot;Mosquitoes! Rabbits! Facebook! Portals! (news round-up).&quot; MQTT.org, September 13. Accessed 2018-06-16.
+          </a>
+                </li>
+          </ol>
+    </section>
+    
+        <section id="further-reading">
+      <h2>Further Reading<i class="uk-icon-external-link external-link-icon pull-right" data-uk-tooltip="{cls:'ttip'}" title="External links"></i></h2>
+      <ol class="article-further-reading">
+                            <li><a rel="nofollow" href="http://mqtt.org/">MQTT Website</a></li>
+                                      <li><a rel="nofollow" href="https://youtu.be/LKz1jYngpcU">Bird, Rob. 2017. &quot;SDC 2017 Session: An Introduction to MQTT: Why HTTP isn&#039;t the King of the Internet of Things.&quot; Samsung Developer Conference 2017, YouTube, October 20. Accessed 2018-06-16.</a></li>
+                                      <li><a rel="nofollow" href="http://www.redbooks.ibm.com/redbooks/pdfs/sg248228.pdf">Bryan Boyd, Joel Gauci, Michael P Robertson, Nguyen Van Duy, Rahul Gupta, Vasfi Gucer, Vladimir Kislicins. 2014. &quot;Building Real-time Mobile Solutions with MQTT and IBM MessageSight.&quot; IBM Redbooks, October. Accessed 2017-03-21.</a></li>
+                        </ol>
+    </section>
+        
+    <section id="article-stats">
+      <h2>Article Stats</h2>
+      <div id="author-stats-modal" class="uk-modal">
+        <div class="author-stats-modal uk-modal-dialog">
+          <a class="uk-modal-close uk-close"></a>
+          <h2>Author-wise Stats for Article Edits</h2>
+
+          
+          <a href='mqtt.html'></a>
+          <div class='uk-grid table-head'>
+            <div class='uk-width-medium-1-3'>Author</div>
+            <div class='uk-width-medium-2-3 col-number'>
+              <div class='uk-grid uk-grid-collapse'>
+                <div class='uk-width-1-3 col-number'>
+                  <i class='uk-icon uk-icon-copy uk-icon-medium' data-uk-tooltip="{cls:'ttip'}" title='# Edits'></i> <span class='col-status'>No. of Edits</span>
+                </div>
+                <div class='uk-width-1-3 col-number'>
+                  <i class='uk-icon uk-icon-comments-o uk-icon-medium' data-uk-tooltip="{cls:'ttip'}" title='# Chats'></i> <span class='col-status'>No. of Chats</span>
+                </div>
+                <div class='uk-width-1-3 col-number'>
+                  <i class='uk-icon uk-icon-database uk-icon-medium' data-uk-tooltip="{cls:'ttip'}" title='# DevCoins'></i> <span class='col-status'>DevCoins</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class='uk-grid dashboard-table'>
+  <div class='uk-width-medium-1-3'>
+    <img data-uk-tooltip="{cls:'ttip'}" title='arvindpdmn' src='images/avatar/44.869607870.1497946746.jpg' alt='Avatar of user arvindpdmn'>
+    <a href='https://devopedia.org/user/arvindpdmn' rel="nofollow noindex">arvindpdmn</a>
+  </div>
+  <div class='uk-width-medium-2-3'>
+    <div class='uk-grid uk-grid-collapse'>
+      <div class='uk-width-1-3 col-number'>
+        <i class='uk-icon uk-icon-copy uk-icon-small field-head' data-uk-tooltip="{cls:'ttip'}" title='# Edits'></i> 5
+      </div>
+      <div class='uk-width-1-3 col-number'>
+        <i class='uk-icon uk-icon-copy uk-icon-small field-head' data-uk-tooltip="{cls:'ttip'}" title='# Chats'></i> 1
+      </div>
+      <div class='uk-width-1-3 col-number'>
+        <i class='uk-icon uk-icon-database uk-icon-small field-head' data-uk-tooltip="{cls:'ttip'}" title='# DevCoins'></i> 1811
+      </div>
+    </div>
+  </div>
+</div>
+<div class='uk-grid dashboard-table'>
+  <div class='uk-width-medium-1-3'>
+    <img data-uk-tooltip="{cls:'ttip'}" title='jiraffa18ft' src='images/avatar/user.png' alt='User avatar'>
+    <a href='https://devopedia.org/user/jiraffa18ft' rel="nofollow noindex">jiraffa18ft</a>
+  </div>
+  <div class='uk-width-medium-2-3'>
+    <div class='uk-grid uk-grid-collapse'>
+      <div class='uk-width-1-3 col-number'>
+        <i class='uk-icon uk-icon-copy uk-icon-small field-head' data-uk-tooltip="{cls:'ttip'}" title='# Edits'></i> 6
+      </div>
+      <div class='uk-width-1-3 col-number'>
+        <i class='uk-icon uk-icon-copy uk-icon-small field-head' data-uk-tooltip="{cls:'ttip'}" title='# Chats'></i> 0
+      </div>
+      <div class='uk-width-1-3 col-number'>
+        <i class='uk-icon uk-icon-database uk-icon-small field-head' data-uk-tooltip="{cls:'ttip'}" title='# DevCoins'></i> 1076
+      </div>
+    </div>
+  </div>
+</div>
+<div class='uk-grid dashboard-table'>
+  <div class='uk-width-medium-1-3'>
+    <img data-uk-tooltip="{cls:'ttip'}" title='tintin' src='images/avatar/45.944961848.1566006856.png' alt='Avatar of user tintin'>
+    <a href='https://devopedia.org/user/tintin' rel="nofollow noindex">tintin</a>
+  </div>
+  <div class='uk-width-medium-2-3'>
+    <div class='uk-grid uk-grid-collapse'>
+      <div class='uk-width-1-3 col-number'>
+        <i class='uk-icon uk-icon-copy uk-icon-small field-head' data-uk-tooltip="{cls:'ttip'}" title='# Edits'></i> 3
+      </div>
+      <div class='uk-width-1-3 col-number'>
+        <i class='uk-icon uk-icon-copy uk-icon-small field-head' data-uk-tooltip="{cls:'ttip'}" title='# Chats'></i> 0
+      </div>
+      <div class='uk-width-1-3 col-number'>
+        <i class='uk-icon uk-icon-database uk-icon-small field-head' data-uk-tooltip="{cls:'ttip'}" title='# DevCoins'></i> 186
+      </div>
+    </div>
+  </div>
+</div>
+<div class='uk-grid dashboard-table'>
+  <div class='uk-width-medium-1-3'>
+    <img data-uk-tooltip="{cls:'ttip'}" title='devbot5S' src='images/avatar/1633.1378469030.1590475371.jpg' alt='Avatar of user devbot5S'>
+    <a href='https://devopedia.org/user/devbot5S' rel="nofollow noindex">devbot5S</a>
+  </div>
+  <div class='uk-width-medium-2-3'>
+    <div class='uk-grid uk-grid-collapse'>
+      <div class='uk-width-1-3 col-number'>
+        <i class='uk-icon uk-icon-copy uk-icon-small field-head' data-uk-tooltip="{cls:'ttip'}" title='# Edits'></i> 1
+      </div>
+      <div class='uk-width-1-3 col-number'>
+        <i class='uk-icon uk-icon-copy uk-icon-small field-head' data-uk-tooltip="{cls:'ttip'}" title='# Chats'></i> 0
+      </div>
+      <div class='uk-width-1-3 col-number'>
+        <i class='uk-icon uk-icon-database uk-icon-small field-head' data-uk-tooltip="{cls:'ttip'}" title='# DevCoins'></i> 6
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div class='uk-grid author-stats-table-footer'>
+            <div class='uk-width-medium-1-1 uk-text-right'>
+              DevCoins due to articles, chats, their likes and article hits are included.
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+
+      <div class="uk-grid" data-uk-grid-margin="">
+        <div class="uk-width-1-3 uk-width-medium-1-6">
+          <div class="article-stats-card">
+            <div id="ascard-words" class="stats-number">
+              1857
+            </div>
+            Words<br>
+          </div>
+        </div>
+        <div class="uk-width-1-3 uk-width-medium-1-6">
+          <a href='mqtt.html#author-stats-modal' data-uk-modal data-uk-tooltip="{cls:'ttip'}" title='Stats by Author'>
+            <div class="article-stats-card">
+              <div id="ascard-authors" class="stats-number">
+                4
+              </div>
+              Authors<br>
+            </div>
+          </a>
+        </div>
+        <div class="uk-width-1-3 uk-width-medium-1-6">
+          <a onclick="jQuery('#offcanvas-compare-link').trigger('click')">
+            <div class="article-stats-card">
+              <div id="ascard-edits" class="stats-number">
+                15
+              </div>
+              Edits<br>
+            </div>
+          </a>
+        </div>
+        <div class="uk-width-1-3 uk-width-medium-1-6">
+          <a onclick="jQuery('#offcanvas-chatroom-link').trigger('click')">
+            <div class="article-stats-card">
+              <div id="ascard-chats" class="stats-number">
+                2
+              </div>
+              Chats<br>
+            </div>
+          </a>
+        </div>
+        <div class="uk-width-1-3 uk-width-medium-1-6">
+          <div class="article-stats-card">
+            <div id="ascard-likes" class="stats-number">
+              8
+            </div>
+            Likes<br>
+          </div>
+        </div>
+        <div class="uk-width-1-3 uk-width-medium-1-6">
+          <div class="article-stats-card">
+            <div id="ascard-hits" class="stats-number">
+              20K
+            </div>
+            Hits<br>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cite-as">
+      <h2>Cite As</h2>
+      <div class='article-cite-as'>Devopedia. 2022. &quot;MQTT.&quot; Version 15, February 15. Accessed 2024-06-25. https://devopedia.org/mqtt</div>
+      <button class="uk-button uk-button-mini" type="button" >Copy citation</button>
+    </section>
+
+  </div>
+
+    <div class="article-right uk-hidden-small uk-width-medium-1-5">
+    <div class="article-top-authors">
+  <a href='mqtt.html#author-stats-modal' data-uk-modal data-uk-tooltip="{cls:'ttip'}" title='Stats by Author'>
+  Contributed by<br>4 authors  </a>
+
+  <br><br>Last updated on<br>
+  <span class='user-datetime dt-readable'>
+    2022-02-15 11:48:04
+    </span>
+
+  
+  
+</div>
+
+<div data-uk-sticky="{top:80}">
+    <div class="article-tags">
+        <a href="https://devopedia.org/site-map/browse-articles/embedded">embedded</a>
+        <a href="https://devopedia.org/site-map/browse-articles/networking">networking</a>
+        <a href="https://devopedia.org/site-map/browse-articles/protocol">protocol</a>
+        <a href="https://devopedia.org/site-map/browse-articles/iot">iot</a>
+      </div>
+  
+    <h3 class="sidebar-head">See Also <a class="uk-icon-puzzle-piece" href="https://devopedia.org/site-map/browse-articles?explore/mqtt" rel="nofollow noindex" data-uk-tooltip="{cls:'ttip'}" title="View in Article Explorer"></a></h3>
+  <ul class="see-also">
+  <li>
+      RabbitMQ
+    <a href="site-map/add-article%3Ftitle=RabbitMQ.html" rel="nofollow">
+      <i class='uk-icon uk-icon-plus add-article-link' data-uk-tooltip="{cls:'ttip'}" title='Add new article'></i>
+    </a>
+  </li>
+<li>
+      HiveMQ
+    <a href="site-map/add-article%3Ftitle=HiveMQ.html" rel="nofollow">
+      <i class='uk-icon uk-icon-plus add-article-link' data-uk-tooltip="{cls:'ttip'}" title='Add new article'></i>
+    </a>
+  </li>
+<li>
+      Eclipse Mosquitto
+    <a href="site-map/add-article%3Ftitle=Eclipse&#32;Mosquitto.html" rel="nofollow">
+      <i class='uk-icon uk-icon-plus add-article-link' data-uk-tooltip="{cls:'ttip'}" title='Add new article'></i>
+    </a>
+  </li>
+<li>
+      Eclipse Paho
+    <a href="site-map/add-article%3Ftitle=Eclipse&#32;Paho.html" rel="nofollow">
+      <i class='uk-icon uk-icon-plus add-article-link' data-uk-tooltip="{cls:'ttip'}" title='Add new article'></i>
+    </a>
+  </li>
+<li>
+      Advanced Message Queuing Protocol
+    <a href="site-map/add-article%3Ftitle=Advanced&#32;Message&#32;Queuing&#32;Protocol.html" rel="nofollow">
+      <i class='uk-icon uk-icon-plus add-article-link' data-uk-tooltip="{cls:'ttip'}" title='Add new article'></i>
+    </a>
+  </li>
+<li>
+      Publish-Subscribe Pattern
+    <a href="site-map/add-article%3Ftitle=Publish-Subscribe&#32;Pattern.html" rel="nofollow">
+      <i class='uk-icon uk-icon-plus add-article-link' data-uk-tooltip="{cls:'ttip'}" title='Add new article'></i>
+    </a>
+  </li>
+  </ul>
+  </div>  </div>
+</div>
+
+
+                            </article>
+                          </main>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer id="tm-footer" class="tm-footer uk-block uk-block-muted tm-block-small">
+    <div class="uk-container uk-container-center">
+        <div class="uk-flex uk-flex-middle uk-flex-space-between uk-text-center-small">
+            <div class="tm-footer-left">
+                <div class="uk-panel">
+                    <div class="uk-grid uk-subnav">
+                        <div class="uk-width-small-1-2 uk-width-medium-1-4">
+                            <ul>
+                            <li class=""><a href="site-info/about.html">About</a></li>
+                            <li class=""><a href="site-info/terms-of-use.html">Terms of Use</a></li>
+                            <li><a href="site-info/terms-of-use.html#privacy-policy">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                        <div class="uk-width-small-1-2 uk-width-medium-1-4">
+                            <ul>
+                            <li class=""><a href="site-info/foundation.html">Foundation</a></li>
+                            <li><a href="site-info/foundation.html#trustees">Trustees</a></li>
+                            <li><a href="site-info/foundation.html#donations">Donations</a></li>
+                            </ul>
+                        </div>
+                        <div class="uk-width-small-1-2 uk-width-medium-1-4">
+                            <ul>
+                            <li><a href="site-info/about.html#mission">Mission</a></li>
+                            <li><a href="site-info/about.html#values">Values</a></li>
+                            <li><a href="site-info/about.html#licensing">Licensing</a></li>
+                            </ul>
+                        </div>
+                        <div class="uk-width-small-1-2 uk-width-medium-1-4">
+                            <ul>
+                            <li><a href="site-map/community-outreach%3Fevents.html">Events</a></li>
+                            <li><a href="https://github.com/DevopediaOrg/webapp/issues" target="_blank"
+                                rel="noopener">Report Issues</a></li>
+                            <li><a href="https://github.com/DevopediaOrg" target="_blank" rel="noopener">Open
+                                Source</a>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-panel lic-icons">
+                    <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener"><img
+                    src="images/misc/cc-by-sa-logo.png" title="CC BY-SA 4.0" alt="CC BY-SA 4.0"
+                    style="height:25px"></a>
+                    <a href="https://www.facebook.com/Devopedia/" title="Facebook" target="_blank" rel="noopener"
+                    class="uk-margin-right uk-icon-hover uk-icon-facebook uk-icon-small"></a>
+                    <a href="https://twitter.com/Devopedia" title="X" target="_blank" rel="noopener"
+                    class="uk-margin-right uk-icon-hover uk-icon-twitter uk-icon-small"></a>
+                    <a href="https://www.youtube.com/channel/UCMuozTpvp7QM0jH2FNi3F5w" title="YouTube"
+                    target="_blank" rel="noopener"
+                    class="uk-margin-right uk-icon-hover uk-icon-youtube-play uk-icon-small"></a>
+                    <a href="mailto:webadmin@devopedia.org" title="Email" target="_blank" rel="noopener"
+                    class="uk-margin-right uk-icon-hover uk-icon-envelope uk-icon-small"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+    <div id="offcanvas" class="uk-offcanvas">
+      <div class="uk-offcanvas-bar uk-offcanvas-bar-flip">
+        <div class="uk-panel main-search-box">
+        <form id="search-offcanvas" class="uk-search" action="https://devopedia.org/site-map/search" method="post" autocomplete="off">
+    <input type="hidden" name="csrf" value="csrf6b07ccd50f00c.06e035157f2743d2fe36bf6053b3cc57">
+    <label for="offcanvas-searchword"
+    style="margin-bottom:0px;line-height:0px;color:transparent">-</label>
+    <input class="uk-search-field" type="text" name="searchword" id="offcanvas-searchword"
+    placeholder="search...">
+    <div data-uk-dropdown="{mode:'click'}">
+        <div class="searchDropdown"></div>
+        <div class="searchResults uk-dropdown"></div>
+    </div>
+</form>
+        </div>
+        <ul class="uk-nav uk-nav-offcanvas">
+          <li class="uk-parent uk-active uk-nav-header">
+            Site Map
+            <ul class="uk-nav-sub">
+              
+<li class=""><a href="https://devopedia.org/site-map/browse-articles" rel="nofollow noindex">Browse Articles</a></li>
+<li class=""><a href="site-map/community-outreach.html" class="menu-line-above">Community Outreach</a></li>
+<li class=""><a href="site-map/about-devopedia.html" class="menu-line-above">About Devopedia</a></li>
+<li class=""><a href="site-map/author-guidelines.html">Author Guidelines</a></li>
+<li class=""><a href="site-map/site-stats.html">Site Stats</a></li>
+<li class=""><a href="https://devopedia.org/site-map/faq-help" rel="nofollow noindex">FAQ &amp; Help</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="uk-panel social-login">
+          <h3 class="uk-panel-title">Login</h3>
+          
+<div class="jlslogin">
+  <div id="offcanvas-slogin-buttons" class="slogin-buttons slogin-compact">
+    <a title="Facebook" href="site-map/user/auth/facebook.html" rel="nofollow noindex"><span
+      class="facebookslogin">&nbsp;</span></a>
+    <a title="Google" href="site-map/user/auth/google.html" rel="nofollow noindex"><span
+      class="googleslogin">&nbsp;</span></a>
+    <a title="LinkedIn" href="https://devopedia.org/site-map/user/auth/linkedin" rel="nofollow noindex"><span
+      class="linkedinslogin">&nbsp;</span></a>
+    <a title="GitHub" href="site-map/user/auth/github.html" rel="nofollow noindex"><span
+      class="githubslogin">&nbsp;</span></a>
+    <a title="BitBucket" href="https://devopedia.org/site-map/user/auth/bitbucket" rel="nofollow noindex"><span
+      class="bitbucketslogin">&nbsp;</span></a>
+  </div>
+  <div class="slogin-clear"></div>
+  <form action="https://devopedia.org/site-map/user/login" method="post" id="offcanvas-login-form">
+    <input type="hidden" name="csrf" value="csrf6b07ccd50f00c.06e035157f2743d2fe36bf6053b3cc57">
+    <fieldset class="userdata">
+      <p id="offcanvas-form-login-username">
+        <label for="offcanvas-modlgn-username">Username</label>
+        <input id="offcanvas-modlgn-username" type="text" name="username" class="inputbox"
+          size="18" />
+      </p>
+      <p id="offcanvas-form-login-password">
+        <label for="offcanvas-modlgn-passwd">Password</label>
+        <input id="offcanvas-modlgn-passwd" type="password" name="password" class="inputbox"
+          size="18" />
+      </p>
+      <div class="slogin-clear"></div>
+      <input type="submit" name="Submit" class="button" value="Log in" />
+    </fieldset>
+    <ul class="ul-jlslogin">
+      <li>
+        <a href="site-map/user/forgot-password.html" rel="nofollow noindex">
+        Forgot your password?</a>
+      </li>
+      <li>
+        <a href="site-map/user/register.html" rel="nofollow noindex">
+        Create an account</a>
+      </li>
+    </ul>
+  </form>
+</div>
+
+        </div>
+      </div>
+    </div>
+      </body>
+</html>
